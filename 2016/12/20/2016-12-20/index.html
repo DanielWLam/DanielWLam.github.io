@@ -17,7 +17,7 @@ render前需要遍历生成的html需要自己遍历，return">
 
 生命周期: shouldUpdate, shouldRender, render, afterRender, afterUpdate，afterMount等
 render前需要遍历生成的html需要自己遍历，return">
-<meta property="og:updated_time" content="2016-12-25T14:07:16.155Z">
+<meta property="og:updated_time" content="2016-12-25T14:09:42.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2016-12-20工作小结">
 <meta name="twitter:description" content="deku从昨天开始，正式接触scrat+deku+redux+stylus的工作开发流。凭借着react和jsx的一点点基础知识，可以较快得掌握redux。其实就是几个知识点：
@@ -104,24 +104,20 @@ render前需要遍历生成的html需要自己遍历，return">
 <h3 id="几个基本概念"><a href="#几个基本概念" class="headerlink" title="几个基本概念"></a>几个基本概念</h3><ol>
 <li>actions： 保存了操作的类型，通常是个对象，如</li>
 </ol>
-<p>`</p>
-<pre><code>{
-    type: &apos;ADD_TODO&apos;,
-    text: &apos;hello&apos; //需要传的参数
-}
-</code></pre><p>`</p>
+<p><code>{
+        type: &#39;ADD_TODO&#39;,
+        text: &#39;hello&#39; //需要传的参数
+    }</code></p>
 <ol>
 <li>reducers:定义了初始状态和action的处理方法，用switch判断action的type，对应不同的处理方式</li>
 <li>actionCreator:创建action的函数，比如</li>
 </ol>
-<p><code>bash</code></p>
-<pre><code>function addTodo(text) {
-    return {
-        type: &apos;ADD_TODO&apos;
-        text
-    }
-}
-</code></pre><p><code>bash</code></p>
+<p><code>function addTodo(text) {
+        return {
+            type: &#39;ADD_TODO&#39;
+            text
+        }
+    }</code></p>
 <ol>
 <li>store：dispatch(action)，主要用于发送事件<br>shexo<br>###几个有用的API</li>
 <li>createStore：传入reducers，创建store对象；</li>
@@ -133,7 +129,7 @@ render前需要遍历生成的html需要自己遍历，return">
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="cix4qcxdx0000o4nq3h3r50yw" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="cix4qf2g700000knql205h9s3" class="article-share-link">Share</a>
       
       
     </footer>
