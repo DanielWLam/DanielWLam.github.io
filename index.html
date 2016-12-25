@@ -96,12 +96,12 @@
 <h3 id="几个基本概念"><a href="#几个基本概念" class="headerlink" title="几个基本概念"></a>几个基本概念</h3><ol>
 <li>actions： 保存了操作的类型，通常是个对象，如</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	&#123;</div><div class="line">		<span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">		<span class="attr">text</span>: <span class="string">'hello'</span> <span class="comment">//需要传的参数</span></div><div class="line">	&#125;</div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">	<span class="attr">text</span>: <span class="string">'hello'</span> <span class="comment">//需要传的参数</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ol>
 <li>reducers:定义了初始状态和action的处理方法，用switch判断action的type，对应不同的处理方式</li>
 <li>actionCreator:创建action的函数，比如</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">		<span class="keyword">return</span> &#123;</div><div class="line">			<span class="attr">type</span>: <span class="string">'ADD_TODO'</span></div><div class="line">			text</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">type</span>: <span class="string">'ADD_TODO'</span></div><div class="line">		text</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ol>
 <li>store：dispatch(action)，主要用于发送事件<br>shexo<br>###几个有用的API</li>
 <li>createStore：传入reducers，创建store对象；</li>
@@ -113,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="cix4qh5660001p4nqbt9pgxoq" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="cix4qk40v0000pknqxs72ihu2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="cix4qh55z0000p4nqxaxeuhww" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="cix4qk4110001pknqfprn9kky" class="article-share-link">Share</a>
       
       
     </footer>
