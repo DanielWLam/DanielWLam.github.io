@@ -86,31 +86,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##参数<br>require(arg)</p>
+        <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>require(arg)</p>
 <p>arg要么是文件名，要么是路径，如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> level3_1 = <span class="built_in">require</span>(<span class="string">'level3_1.js'</span>); <span class="comment">//文件.js</span></div><div class="line"><span class="keyword">var</span> level3_2 = <span class="built_in">require</span>(<span class="string">'./level3_2.js'</span>); <span class="comment">//路径+文件.js</span></div><div class="line"><span class="keyword">var</span> level3_3 = <span class="built_in">require</span>(<span class="string">'./level3_3'</span>); <span class="comment">//路径+文件</span></div><div class="line"><span class="keyword">var</span> inlevel3_3 = <span class="built_in">require</span>(<span class="string">'./level3_3/'</span>); <span class="comment">//路径/</span></div><div class="line"><span class="keyword">var</span> level3_4 = <span class="built_in">require</span>(<span class="string">'level3_4'</span>); <span class="comment">//文件</span></div><div class="line"></div><div class="line">level3_1(); <span class="comment">//i am 3_1</span></div><div class="line">level3_2(); <span class="comment">//i am 3_2</span></div><div class="line">level3_3(); <span class="comment">//i am 3_3</span></div><div class="line">inlevel3_3; <span class="comment">//i am 3_3 in directory</span></div><div class="line">level3_4(); <span class="comment">//i am 3_4</span></div></pre></td></tr></table></figure>
-<p>##require(x)</p>
-<ol>
+<h2 id="require-x"><a href="#require-x" class="headerlink" title="require(x)"></a>require(x)</h2><ol>
 <li>如果x是核心模块，直接加载</li>
 <li>如果x是以./或者/或者../开头的，则认为是路径，则先尝试当作文件加载的方式加载，找不到就按路径加载的方式加载</li>
 <li>如果直接是一个名字，则按node_modules方式加载</li>
 </ol>
-<p>###文件加载：</p>
-<ol>
+<h3 id="文件加载："><a href="#文件加载：" class="headerlink" title="文件加载："></a>文件加载：</h3><ol>
 <li>如果X是一个文件，则直接加载X作为js文件加载；</li>
 <li>如果X.js存在，则加载x.js</li>
 <li>如果X.json存在，则把x.json的内容作为js对象加载；</li>
 <li>如果x.node存在，则把x.node作为二进制文件加载；</li>
 </ol>
-<p>###路径加载：</p>
-<ol>
+<h3 id="路径加载："><a href="#路径加载：" class="headerlink" title="路径加载："></a>路径加载：</h3><ol>
 <li>如果X/package.json存在， 把package.json里main指向的文件加载；</li>
 <li>如果X/index.js存在，则加载X/index.js</li>
 <li>如果X/index.json存在，则把X/index.json的内容作为js对象加载；</li>
 <li>如果X/index.node存在，则以二进制文件的方式加载x.node</li>
 </ol>
-<p>###node_modules加载：</p>
-<p>从本文件所在目录开始，执行</p>
+<h3 id="node-modules加载："><a href="#node-modules加载：" class="headerlink" title="node_modules加载："></a>node_modules加载：</h3><p>从本文件所在目录开始，执行</p>
 <ol>
 <li>问文件加载的方式加载目录下node_moudles的X</li>
 <li>没有找到的话，就按路径加载的方式加载该目录下node_moudles的X, 直到全局NODE_MODULES</li>
@@ -119,7 +115,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="cixbvr4a90001konq16p1nsj4" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="cixbw31u00001a8nqh1pq6ght" class="article-share-link">Share</a>
       
       
     </footer>
@@ -155,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/25/2016-12-25/" data-id="cixbvr4ad0002konqtlepih22" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/25/2016-12-25/" data-id="cixbw31tt0000a8nqnbckzxbi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -214,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="cixbvr49x0000konqgqvqbd29" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="cixbw31u20002a8nqjibni9xu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -253,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="cixbvr4ao0003konqvasoal7n" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="cixbw31u30003a8nqfphsdy5v" class="article-share-link">Share</a>
       
       
     </footer>
