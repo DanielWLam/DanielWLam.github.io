@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nodejs require语法简析 | Daniel的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##参数require(arg)
+arg要么是文件名，要么是路径，如下：
+123456789101112var level3_1 = require(&apos;level3_1.js&apos;); //文件.jsvar level3_2 = require(&apos;./level3_2.js&apos;); //路径+文件.jsvar level3_3 = require(&apos;./level3_3&apos;); //路径+文件var in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs require语法简析">
+<meta property="og:url" content="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/index.html">
+<meta property="og:site_name" content="Daniel的blog">
+<meta property="og:description" content="##参数require(arg)
+arg要么是文件名，要么是路径，如下：
+123456789101112var level3_1 = require(&apos;level3_1.js&apos;); //文件.jsvar level3_2 = require(&apos;./level3_2.js&apos;); //路径+文件.jsvar level3_3 = require(&apos;./level3_3&apos;); //路径+文件var in">
+<meta property="og:updated_time" content="2016-12-30T13:58:45.599Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs require语法简析">
+<meta name="twitter:description" content="##参数require(arg)
+arg要么是文件名，要么是路径，如下：
+123456789101112var level3_1 = require(&apos;level3_1.js&apos;); //文件.jsvar level3_2 = require(&apos;./level3_2.js&apos;); //路径+文件.jsvar level3_3 = require(&apos;./level3_3&apos;); //路径+文件var in">
+  
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Daniel的blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">除了前端技术，应该还会记录些生活趣事吧</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">全部</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://danielwlam.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016-12-29-node-require" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/29/2016-12-29-node-require/" class="article-date">
+  <time datetime="2016-12-29T15:19:57.955Z" itemprop="datePublished">2016-12-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nodejs require语法简析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##参数<br>require(arg)</p>
+<p>arg要么是文件名，要么是路径，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> level3_1 = <span class="built_in">require</span>(<span class="string">'level3_1.js'</span>); <span class="comment">//文件.js</span></div><div class="line"><span class="keyword">var</span> level3_2 = <span class="built_in">require</span>(<span class="string">'./level3_2.js'</span>); <span class="comment">//路径+文件.js</span></div><div class="line"><span class="keyword">var</span> level3_3 = <span class="built_in">require</span>(<span class="string">'./level3_3'</span>); <span class="comment">//路径+文件</span></div><div class="line"><span class="keyword">var</span> inlevel3_3 = <span class="built_in">require</span>(<span class="string">'./level3_3/'</span>); <span class="comment">//路径/</span></div><div class="line"><span class="keyword">var</span> level3_4 = <span class="built_in">require</span>(<span class="string">'level3_4'</span>); <span class="comment">//文件</span></div><div class="line"></div><div class="line">level3_1(); <span class="comment">//i am 3_1</span></div><div class="line">level3_2(); <span class="comment">//i am 3_2</span></div><div class="line">level3_3(); <span class="comment">//i am 3_3</span></div><div class="line">inlevel3_3; <span class="comment">//i am 3_3 in directory</span></div><div class="line">level3_4(); <span class="comment">//i am 3_4</span></div></pre></td></tr></table></figure>
+<p>##require(x)</p>
+<ol>
+<li>如果x是核心模块，直接加载</li>
+<li>如果x是以./或者/或者../开头的，则认为是路径，则先尝试当作文件加载的方式加载，找不到就按路径加载的方式加载</li>
+<li>如果直接是一个名字，则按node_modules方式加载</li>
+</ol>
+<p>###文件加载：</p>
+<ol>
+<li>如果X是一个文件，则直接加载X作为js文件加载；</li>
+<li>如果X.js存在，则加载x.js</li>
+<li>如果X.json存在，则把x.json的内容作为js对象加载；</li>
+<li>如果x.node存在，则把x.node作为二进制文件加载；</li>
+</ol>
+<p>###路径加载：</p>
+<ol>
+<li>如果X/package.json存在， 把package.json里main指向的文件加载；</li>
+<li>如果X/index.js存在，则加载X/index.js</li>
+<li>如果X/index.json存在，则把X/index.json的内容作为js对象加载；</li>
+<li>如果X/index.node存在，则以二进制文件的方式加载x.node</li>
+</ol>
+<p>###node_modules加载：</p>
+<p>从本文件所在目录开始，执行</p>
+<ol>
+<li>问文件加载的方式加载目录下node_moudles的X</li>
+<li>没有找到的话，就按路径加载的方式加载该目录下node_moudles的X, 直到全局NODE_MODULES</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="cixbvr4a90001konq16p1nsj4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/25/2016-12-25/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Immutable学习小记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/29/2016-12-29-node-require/">nodejs require语法简析</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/25/2016-12-25/">Immutable学习小记</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/20/2016-12-20/">2016-12-20工作小结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/14/hello-world/">博客迁移计划</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Daniel Lam<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">全部</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
