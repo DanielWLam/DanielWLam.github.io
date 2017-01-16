@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Daniel的blog</title>
+  <title>egg.js初体验 | Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Daniel的blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Daniel的blog">
-<meta property="og:url" content="https://danielwlam.github.io/index.html">
+  <meta name="description" content="前几天egg开源了，官网在此这里
+今天初体验了一下，按照官网文档来做demo，其他都挺好的，在这里给做点小笔记，关于controller和service里的this, service的方法中this包含了ctx和app，而这个this.ctx就是controller中的this了。另外，ctx还封装了一些方法，比如curl用于发起请求等。
+12345678910111213141516171819">
+<meta property="og:type" content="article">
+<meta property="og:title" content="egg.js初体验">
+<meta property="og:url" content="https://danielwlam.github.io/2017/01/16/2017-01-16-egg/index.html">
 <meta property="og:site_name" content="Daniel的blog">
-<meta property="og:description" content="Daniel的blog">
+<meta property="og:description" content="前几天egg开源了，官网在此这里
+今天初体验了一下，按照官网文档来做demo，其他都挺好的，在这里给做点小笔记，关于controller和service里的this, service的方法中this包含了ctx和app，而这个this.ctx就是controller中的this了。另外，ctx还封装了一些方法，比如curl用于发起请求等。
+12345678910111213141516171819">
+<meta property="og:updated_time" content="2017-01-16T14:15:16.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Daniel的blog">
-<meta name="twitter:description" content="Daniel的blog">
+<meta name="twitter:title" content="egg.js初体验">
+<meta name="twitter:description" content="前几天egg开源了，官网在此这里
+今天初体验了一下，按照官网文档来做demo，其他都挺好的，在这里给做点小笔记，关于controller和service里的this, service的方法中this包含了ctx和app，而这个this.ctx就是controller中的this了。另外，ctx还封装了一些方法，比如curl用于发起请求等。
+12345678910111213141516171819">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -62,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-2017-01-16-egg" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2017-01-16-egg" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/16/2017-01-16-egg/" class="article-date">
   <time datetime="2017-01-16T14:07:03.906Z" itemprop="datePublished">2017-01-16</time>
@@ -77,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/16/2017-01-16-egg/">egg.js初体验</a>
+    <h1 class="article-title" itemprop="name">
+      egg.js初体验
     </h1>
   
 
@@ -99,205 +104,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-2016-12-29-node-require" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/29/2016-12-29-node-require/" class="article-date">
-  <time datetime="2016-12-29T15:19:57.955Z" itemprop="datePublished">2016-12-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/29/2016-12-29-node-require/">nodejs require语法简析</a>
-    </h1>
+    <a href="/2016/12/29/2016-12-29-node-require/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">nodejs require语法简析</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>require(arg)</p>
-<p>arg要么是文件名，要么是路径，如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> level3_1 = <span class="built_in">require</span>(<span class="string">'level3_1.js'</span>); <span class="comment">//文件.js</span></div><div class="line"><span class="keyword">var</span> level3_2 = <span class="built_in">require</span>(<span class="string">'./level3_2.js'</span>); <span class="comment">//路径+文件.js</span></div><div class="line"><span class="keyword">var</span> level3_3 = <span class="built_in">require</span>(<span class="string">'./level3_3'</span>); <span class="comment">//路径+文件</span></div><div class="line"><span class="keyword">var</span> inlevel3_3 = <span class="built_in">require</span>(<span class="string">'./level3_3/'</span>); <span class="comment">//路径/</span></div><div class="line"><span class="keyword">var</span> level3_4 = <span class="built_in">require</span>(<span class="string">'level3_4'</span>); <span class="comment">//文件</span></div><div class="line"></div><div class="line">level3_1(); <span class="comment">//i am 3_1</span></div><div class="line">level3_2(); <span class="comment">//i am 3_2</span></div><div class="line">level3_3(); <span class="comment">//i am 3_3</span></div><div class="line">inlevel3_3; <span class="comment">//i am 3_3 in directory</span></div><div class="line">level3_4(); <span class="comment">//i am 3_4</span></div></pre></td></tr></table></figure>
-<h2 id="require-x"><a href="#require-x" class="headerlink" title="require(x)"></a>require(x)</h2><ol>
-<li>如果x是核心模块，直接加载</li>
-<li>如果x是以./或者/或者../开头的，则认为是路径，则先尝试当作文件加载的方式加载，找不到就按路径加载的方式加载</li>
-<li>如果直接是一个名字，则按node_modules方式加载</li>
-</ol>
-<h3 id="文件加载："><a href="#文件加载：" class="headerlink" title="文件加载："></a>文件加载：</h3><ol>
-<li>如果X是一个文件，则直接加载X作为js文件加载；</li>
-<li>如果X.js存在，则加载x.js</li>
-<li>如果X.json存在，则把x.json的内容作为js对象加载；</li>
-<li>如果x.node存在，则把x.node作为二进制文件加载；</li>
-</ol>
-<h3 id="路径加载："><a href="#路径加载：" class="headerlink" title="路径加载："></a>路径加载：</h3><ol>
-<li>如果X/package.json存在， 把package.json里main指向的文件加载；</li>
-<li>如果X/index.js存在，则加载X/index.js</li>
-<li>如果X/index.json存在，则把X/index.json的内容作为js对象加载；</li>
-<li>如果X/index.node存在，则以二进制文件的方式加载x.node</li>
-</ol>
-<h3 id="node-modules加载："><a href="#node-modules加载：" class="headerlink" title="node_modules加载："></a>node_modules加载：</h3><p>从本文件所在目录开始，执行</p>
-<ol>
-<li>问文件加载的方式加载目录下node_moudles的X</li>
-<li>没有找到的话，就按路径加载的方式加载该目录下node_moudles的X, 直到全局NODE_MODULES</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="ciy06b7gv0004gwnq103cgd9x" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-2016-12-25" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/25/2016-12-25/" class="article-date">
-  <time datetime="2016-12-25T14:17:22.224Z" itemprop="datePublished">2016-12-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/25/2016-12-25/">Immutable学习小记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/25/2016-12-25/" data-id="ciy06b7e00000gwnqlggsyd30" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2016-12-20" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/20/2016-12-20/" class="article-date">
-  <time datetime="2016-12-20T13:32:56.788Z" itemprop="datePublished">2016-12-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/20/2016-12-20/">2016-12-20工作小结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="deku"><a href="#deku" class="headerlink" title="deku"></a>deku</h2><p>从昨天开始，正式接触scrat+deku+redux+stylus的工作开发流。凭借着react和jsx的一点点基础知识，可以较快得掌握redux。其实就是几个知识点：</p>
-<ol>
-<li>生命周期: shouldUpdate, shouldRender, render, afterRender, afterUpdate，afterMount等</li>
-<li>render前需要遍历生成的html需要自己遍历，return()标签</li>
-<li>onClick, onInput等事件变成这样的形式等</li>
-</ol>
-<h2 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h2><p>搭配deku，有很多隐藏的知识点，文档上已经有说明了，但是单单看文档是不够的，最重要的是什么，“打”，使劲地打demo，“站在岸上学不会有用”。</p>
-<h3 id="几个基本概念"><a href="#几个基本概念" class="headerlink" title="几个基本概念"></a>几个基本概念</h3><ol>
-<li>actions： 保存了操作的类型，通常是个对象，如</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">	<span class="attr">text</span>: <span class="string">'hello'</span> <span class="comment">//需要传的参数</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>reducers:定义了初始状态和action的处理方法，用switch判断action的type，对应不同的处理方式</li>
-<li>actionCreator:创建action的函数，比如</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">type</span>: <span class="string">'ADD_TODO'</span></div><div class="line">		text</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>store：dispatch(action)，主要用于发送事件<br>shexo<h3 id="几个有用的API"><a href="#几个有用的API" class="headerlink" title="几个有用的API"></a>几个有用的API</h3></li>
-<li>createStore：传入reducers，创建store对象；</li>
-<li>combineReducers：当项目大时，通常把reducers分成很多个小文件，通过这个API，把reducers组织为一个，因为通常一个应用只能有一个store，所以传入的reducers一般就是用这个API聚合而成；</li>
-<li>bindActionCreators:通过传入actionCreators来使dispatch变得全局可用。通常dispatch只能由store发出，但是通过这个API就不需要传store了，直接dispatch就好了。</li>
-</ol>
-<h2 id="stylus"><a href="#stylus" class="headerlink" title="stylus"></a>stylus</h2><p>其实个人感觉这个CSS预处理器都大同小异，但是团队目前的语法是省略大括号｛｝，省略冒号：，省略分号；    还在努力适应中。。。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="ciy06b7gt0002gwnq38tmk6jz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/14/hello-world/" class="article-date">
-  <time datetime="2016-12-14T02:31:06.399Z" itemprop="datePublished">2016-12-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/14/hello-world/">博客迁移计划</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：<a href="http://www.cnblogs.com/danielweb" target="_blank" rel="external">http://www.cnblogs.com/danielweb</a>也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。</p>
-<p>请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！</p>
-<p><img src="http://pic.gansudaily.com.cn/0/10/92/42/10924286_743216.jpg" alt="Alt hahah"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="ciy06b7gu0003gwnqjzjmz5qo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
