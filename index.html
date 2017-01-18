@@ -64,6 +64,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-linux-mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/18/linux-mysql/" class="article-date">
+  <time datetime="2017-01-18T15:02:14.250Z" itemprop="datePublished">2017-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/18/linux-mysql/">linux安装mysql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>主要是记录一下几条命令</p>
+<ol>
+<li><p>查看有没有安装过：yum list installed mysql*</p>
+</li>
+<li><p>查看有没有安装包：yum list msql*</p>
+</li>
+</ol>
+<ol>
+<li>如果没有的话，需要先下载yum repo配置文件并安装<ol>
+<li>wget <a href="http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm" target="_blank" rel="external">http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</a></li>
+<li>rpm -ivh mysql57-community-release-el7-9.noarch.rpm</li>
+</ol>
+</li>
+<li>然后就是yum install mysql</li>
+<li>yum install mysql-server</li>
+<li>yum install mysql-devel</li>
+</ol>
+<p>题外话：今天我安装的时候，似乎直接指定3.2就行了，没有执行3.1</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/01/18/linux-mysql/" data-id="ciy33ihwf0002uonqecqmx1re" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2017-01-16-egg" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/16/2017-01-16-egg/" class="article-date">
@@ -93,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/16/2017-01-16-egg/" data-id="ciy06efux0004tknqp50vmn3o" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/16/2017-01-16-egg/" data-id="ciy33ihwf0003uonqsgg4kgeh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="ciy06efuv0002tknqnbc5c97t" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="ciy33ihw00001uonq2wxlb5l5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/25/2016-12-25/" data-id="ciy06efut0001tknqkcp4b78q" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/25/2016-12-25/" data-id="ciy33ihu90000uonqcykdr6eu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -249,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="ciy06efun0000tknqs1uhqhgi" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="ciy33ihwv0004uonqzpjtzlrn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="ciy06efuw0003tknqlr42vil6" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="ciy33ihz10005uonqv0zu8pet" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,6 +382,10 @@
       <ul>
         
           <li>
+            <a href="/2017/01/18/linux-mysql/">linux安装mysql</a>
+          </li>
+        
+          <li>
             <a href="/2017/01/16/2017-01-16-egg/">egg.js初体验</a>
           </li>
         
@@ -341,10 +399,6 @@
         
           <li>
             <a href="/2016/12/20/2016-12-20/">2016-12-20工作小结</a>
-          </li>
-        
-          <li>
-            <a href="/2016/12/14/hello-world/">博客迁移计划</a>
           </li>
         
       </ul>

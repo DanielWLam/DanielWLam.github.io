@@ -3,18 +3,48 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Immutable学习小记 | Daniel的blog</title>
+  <title>linux安装mysql | Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Daniel的blog">
+  <meta name="description" content="主要是记录一下几条命令
+
+查看有没有安装过：yum list installed mysql*
+
+查看有没有安装包：yum list msql*
+
+
+
+如果没有的话，需要先下载yum repo配置文件并安装
+wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+rpm -ivh mysql57-commun">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Immutable学习小记">
-<meta property="og:url" content="https://danielwlam.github.io/2016/12/25/2016-12-25/index.html">
+<meta property="og:title" content="linux安装mysql">
+<meta property="og:url" content="https://danielwlam.github.io/2017/01/18/linux-mysql/index.html">
 <meta property="og:site_name" content="Daniel的blog">
-<meta property="og:description" content="Daniel的blog">
-<meta property="og:updated_time" content="2016-12-25T14:17:48.069Z">
+<meta property="og:description" content="主要是记录一下几条命令
+
+查看有没有安装过：yum list installed mysql*
+
+查看有没有安装包：yum list msql*
+
+
+
+如果没有的话，需要先下载yum repo配置文件并安装
+wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+rpm -ivh mysql57-commun">
+<meta property="og:updated_time" content="2017-01-18T15:20:10.420Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Immutable学习小记">
-<meta name="twitter:description" content="Daniel的blog">
+<meta name="twitter:title" content="linux安装mysql">
+<meta name="twitter:description" content="主要是记录一下几条命令
+
+查看有没有安装过：yum list installed mysql*
+
+查看有没有安装包：yum list msql*
+
+
+
+如果没有的话，需要先下载yum repo配置文件并安装
+wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+rpm -ivh mysql57-commun">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -63,10 +93,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2016-12-25" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-linux-mysql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/25/2016-12-25/" class="article-date">
-  <time datetime="2016-12-25T14:17:22.224Z" itemprop="datePublished">2016-12-25</time>
+    <a href="/2017/01/18/linux-mysql/" class="article-date">
+  <time datetime="2017-01-18T15:02:14.250Z" itemprop="datePublished">2017-01-18</time>
 </a>
     
   </div>
@@ -77,7 +107,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Immutable学习小记
+      linux安装mysql
     </h1>
   
 
@@ -85,11 +115,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>主要是记录一下几条命令</p>
+<ol>
+<li><p>查看有没有安装过：yum list installed mysql*</p>
+</li>
+<li><p>查看有没有安装包：yum list msql*</p>
+</li>
+</ol>
+<ol>
+<li>如果没有的话，需要先下载yum repo配置文件并安装<ol>
+<li>wget <a href="http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm" target="_blank" rel="external">http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</a></li>
+<li>rpm -ivh mysql57-community-release-el7-9.noarch.rpm</li>
+</ol>
+</li>
+<li>然后就是yum install mysql</li>
+<li>yum install mysql-server</li>
+<li>yum install mysql-devel</li>
+</ol>
+<p>题外话：今天我安装的时候，似乎直接指定3.2就行了，没有执行3.1</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/25/2016-12-25/" data-id="ciy33ihu90000uonqcykdr6eu" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/18/linux-mysql/" data-id="ciy33ihwf0002uonqecqmx1re" class="article-share-link">Share</a>
       
       
     </footer>
@@ -98,19 +146,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/12/29/2016-12-29-node-require/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          nodejs require语法简析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/20/2016-12-20/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/01/16/2017-01-16-egg/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">2016-12-20工作小结</div>
+      <div class="article-nav-title">egg.js初体验</div>
     </a>
   
 </nav>
