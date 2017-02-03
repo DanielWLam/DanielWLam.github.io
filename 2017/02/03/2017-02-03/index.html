@@ -3,23 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>博客迁移计划 | Daniel的blog</title>
+  <title>mysql select in 按所选择的排序 | Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：http://www.cnblogs.com/danielweb也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。
-请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！">
+  <meta name="description" content="是日工作小结：
+今天遇到一个小需求就是，在 select in()一堆id里，返回的数据，按照传入的ids排序
+由于默认是按照primary key排序的，一般获得数据后要进行处理，这时按顺序来会比较好处理，所以可以这样写，举个例子，从topic表取出A,B,C,D,E,F,G的topic_id的数据
+12select * from topic where topic_id in (A, B, C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客迁移计划">
-<meta property="og:url" content="https://danielwlam.github.io/2016/12/14/hello-world/index.html">
+<meta property="og:title" content="mysql select in 按所选择的排序">
+<meta property="og:url" content="https://danielwlam.github.io/2017/02/03/2017-02-03/index.html">
 <meta property="og:site_name" content="Daniel的blog">
-<meta property="og:description" content="欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：http://www.cnblogs.com/danielweb也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。
-请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！">
-<meta property="og:image" content="http://pic.gansudaily.com.cn/0/10/92/42/10924286_743216.jpg">
-<meta property="og:updated_time" content="2016-12-14T03:41:16.450Z">
+<meta property="og:description" content="是日工作小结：
+今天遇到一个小需求就是，在 select in()一堆id里，返回的数据，按照传入的ids排序
+由于默认是按照primary key排序的，一般获得数据后要进行处理，这时按顺序来会比较好处理，所以可以这样写，举个例子，从topic表取出A,B,C,D,E,F,G的topic_id的数据
+12select * from topic where topic_id in (A, B, C">
+<meta property="og:updated_time" content="2017-02-03T14:37:23.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客迁移计划">
-<meta name="twitter:description" content="欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：http://www.cnblogs.com/danielweb也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。
-请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！">
-<meta name="twitter:image" content="http://pic.gansudaily.com.cn/0/10/92/42/10924286_743216.jpg">
+<meta name="twitter:title" content="mysql select in 按所选择的排序">
+<meta name="twitter:description" content="是日工作小结：
+今天遇到一个小需求就是，在 select in()一堆id里，返回的数据，按照传入的ids排序
+由于默认是按照primary key排序的，一般获得数据后要进行处理，这时按顺序来会比较好处理，所以可以这样写，举个例子，从topic表取出A,B,C,D,E,F,G的topic_id的数据
+12select * from topic where topic_id in (A, B, C">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -68,10 +72,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2017-02-03" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/14/hello-world/" class="article-date">
-  <time datetime="2016-12-14T02:31:06.399Z" itemprop="datePublished">2016-12-14</time>
+    <a href="/2017/02/03/2017-02-03/" class="article-date">
+  <time datetime="2017-02-03T14:32:45.786Z" itemprop="datePublished">2017-02-03</time>
 </a>
     
   </div>
@@ -82,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      博客迁移计划
+      mysql select in 按所选择的排序
     </h1>
   
 
@@ -90,14 +94,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：<a href="http://www.cnblogs.com/danielweb" target="_blank" rel="external">http://www.cnblogs.com/danielweb</a>也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。</p>
-<p>请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！</p>
-<p><img src="http://pic.gansudaily.com.cn/0/10/92/42/10924286_743216.jpg" alt="Alt hahah"></p>
+        <p>是日工作小结：</p>
+<p>今天遇到一个小需求就是，在 select in()一堆id里，返回的数据，按照传入的ids排序</p>
+<p>由于默认是按照primary key排序的，一般获得数据后要进行处理，这时按顺序来会比较好处理，所以可以这样写，举个例子，从topic表取出A,B,C,D,E,F,G的topic_id的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from topic where topic_id in (A, B, C, D, E, </div><div class="line">F, G) order by field(topic_id, A, B, C, D, E, F, G)</div></pre></td></tr></table></figure>
+<p>记录一下~~</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="ciypx16m200067steqjr57i7l" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/03/2017-02-03/" data-id="ciypx16lk00027stebmu704pc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -106,15 +112,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/12/20/2016-12-20/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          2016-12-20工作小结
-        
-      </div>
-    </a>
   
+    <a href="/2017/01/24/2017-01-24/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">小记</div>
+    </a>
   
 </nav>
 
