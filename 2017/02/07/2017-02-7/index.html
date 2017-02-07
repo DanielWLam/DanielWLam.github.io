@@ -6,18 +6,18 @@
   <title>Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="2017-02-07工作小结今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。
-####系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系">
+系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系统时间通">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Daniel的blog">
 <meta property="og:url" content="https://danielwlam.github.io/2017/02/07/2017-02-7/index.html">
 <meta property="og:site_name" content="Daniel的blog">
 <meta property="og:description" content="2017-02-07工作小结今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。
-####系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系">
-<meta property="og:updated_time" content="2017-02-07T15:20:29.960Z">
+系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系统时间通">
+<meta property="og:updated_time" content="2017-02-07T15:24:17.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Daniel的blog">
 <meta name="twitter:description" content="2017-02-07工作小结今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。
-####系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系">
+系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系统时间通">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -80,19 +80,19 @@
       
         <hr>
 <h2 id="2017-02-07工作小结"><a href="#2017-02-07工作小结" class="headerlink" title="2017-02-07工作小结"></a>2017-02-07工作小结</h2><p>今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。</p>
-<p>####系统时间<br>linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。<br>硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系统时间通过date查看，date -s ‘同上’来设置。</p>
+<h4 id="系统时间"><a href="#系统时间" class="headerlink" title="系统时间"></a>系统时间</h4><p>linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。<br>硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系统时间通过date查看，date -s ‘同上’来设置。</p>
 <p>另外可以用hwclock –hctosys来用硬件时间同步到系统时间</p>
 <p>用h2clock –systohc用系统时间同步到硬件时间。</p>
 <p>除了上面说的方法外，还可以用tzselect来设置，具体就是输入这个命令后，选择自己所属的市区，一般会选到Asia/Shanghai， 然后</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
 <p>即可。</p>
-<p>####mysql时间<br>设置完系统的时间，还要设置mysql的市区。因为默认是按服务器地址来的，所以如果服务器不在中国，就要自己设置一下了。首先先看一下目前的时区, show variables like ‘%time_zone%’看看是不是其他的，默认是system，可以mysql的安装目录下的my.ini或者my.cnf，vi打开，添加一行[mysqld]下添加default-time-zone=’+08:00’。然后重启mysql。改好后用select now()来验证，正确的话，跟你电脑上的时间应该是一样的。</p>
-<p>####传输的时间<br>从mysql选择出的datetime格式时间，放到node是正确的Date对象，然而在接口中传到C端时，会被自动转化为ISO时间，也就是0时区的时间，于是就少了8个小时。这时候，今天的处理方式是传输前先把Date对象用moment处理成需要的格式。其实感觉应该有什么方法可以直接用数据库的时间的吧？不然不是挺蛋疼的？</p>
+<h4 id="mysql时间"><a href="#mysql时间" class="headerlink" title="mysql时间"></a>mysql时间</h4><p>设置完系统的时间，还要设置mysql的市区。因为默认是按服务器地址来的，所以如果服务器不在中国，就要自己设置一下了。首先先看一下目前的时区, show variables like ‘%time_zone%’看看是不是其他的，默认是system，可以mysql的安装目录下的my.ini或者my.cnf，vi打开，添加一行[mysqld]下添加default-time-zone=’+08:00’。然后重启mysql。改好后用select now()来验证，正确的话，跟你电脑上的时间应该是一样的。</p>
+<h4 id="传输的时间"><a href="#传输的时间" class="headerlink" title="传输的时间"></a>传输的时间</h4><p>从mysql选择出的datetime格式时间，放到node是正确的Date对象，然而在接口中传到C端时，会被自动转化为ISO时间，也就是0时区的时间，于是就少了8个小时。这时候，今天的处理方式是传输前先把Date对象用moment处理成需要的格式。其实感觉应该有什么方法可以直接用数据库的时间的吧？不然不是挺蛋疼的？</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="ciyvobv3q0008ewteehfmbqtj" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="ciyvog644000608te3jk2xzth" class="article-share-link">Share</a>
       
       
     </footer>
