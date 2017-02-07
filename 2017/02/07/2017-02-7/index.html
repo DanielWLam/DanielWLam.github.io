@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Daniel的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2017-02-07工作小结今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。
+####系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Daniel的blog">
+<meta property="og:url" content="https://danielwlam.github.io/2017/02/07/2017-02-7/index.html">
+<meta property="og:site_name" content="Daniel的blog">
+<meta property="og:description" content="2017-02-07工作小结今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。
+####系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系">
+<meta property="og:updated_time" content="2017-02-07T15:20:29.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Daniel的blog">
+<meta name="twitter:description" content="2017-02-07工作小结今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。
+####系统时间linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系">
+  
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Daniel的blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">除了前端技术，应该还会记录些生活趣事吧</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">全部</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://danielwlam.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-02-7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/07/2017-02-7/" class="article-date">
+  <time datetime="2017-02-07T14:49:31.477Z" itemprop="datePublished">2017-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="2017-02-07工作小结"><a href="#2017-02-07工作小结" class="headerlink" title="2017-02-07工作小结"></a>2017-02-07工作小结</h2><p>今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。</p>
+<p>####系统时间<br>linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。<br>硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系统时间通过date查看，date -s ‘同上’来设置。</p>
+<p>另外可以用hwclock –hctosys来用硬件时间同步到系统时间</p>
+<p>用h2clock –systohc用系统时间同步到硬件时间。</p>
+<p>除了上面说的方法外，还可以用tzselect来设置，具体就是输入这个命令后，选择自己所属的市区，一般会选到Asia/Shanghai， 然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
+<p>即可。</p>
+<p>####mysql时间<br>设置完系统的时间，还要设置mysql的市区。因为默认是按服务器地址来的，所以如果服务器不在中国，就要自己设置一下了。首先先看一下目前的时区, show variables like ‘%time_zone%’看看是不是其他的，默认是system，可以mysql的安装目录下的my.ini或者my.cnf，vi打开，添加一行[mysqld]下添加default-time-zone=’+08:00’。然后重启mysql。改好后用select now()来验证，正确的话，跟你电脑上的时间应该是一样的。</p>
+<p>####传输的时间<br>从mysql选择出的datetime格式时间，放到node是正确的Date对象，然而在接口中传到C端时，会被自动转化为ISO时间，也就是0时区的时间，于是就少了8个小时。这时候，今天的处理方式是传输前先把Date对象用moment处理成需要的格式。其实感觉应该有什么方法可以直接用数据库的时间的吧？不然不是挺蛋疼的？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="ciyvobv3q0008ewteehfmbqtj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/03/readme/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/2017-02-7/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/readme/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/2017-02-03/">mysql select in 按所选择的排序</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/24/2017-01-24/">小记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/18/linux-mysql/">linux安装mysql</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Daniel Lam<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">全部</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  <!--友盟统计-->
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261171771'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261171771%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>
