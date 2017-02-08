@@ -3,17 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档: 2016 | Daniel的blog</title>
+  <title>IOS click事件 | Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Daniel的blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Daniel的blog">
-<meta property="og:url" content="https://danielwlam.github.io/archives/2016/index.html">
+  <meta name="description" content="算是IOS的bug吧，如果不用fastclick之类的工具来处理，想用原生click事件，如果不是a标签或者input标签，click事件不能冒泡到body上。解决方法：
+
+事件直接绑定到元素上。
+要冒泡的元素加上cursor:pointer;
+监听的元素改成body内的其它父元素。
+
+显然，2，3方法比较适用于实际情况。
+另外，据说IOS8以后click事件已经没有那300ms的延时？待鉴定呢！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOS click事件">
+<meta property="og:url" content="https://danielwlam.github.io/2017/02/08/2017-02-08/index.html">
 <meta property="og:site_name" content="Daniel的blog">
-<meta property="og:description" content="Daniel的blog">
+<meta property="og:description" content="算是IOS的bug吧，如果不用fastclick之类的工具来处理，想用原生click事件，如果不是a标签或者input标签，click事件不能冒泡到body上。解决方法：
+
+事件直接绑定到元素上。
+要冒泡的元素加上cursor:pointer;
+监听的元素改成body内的其它父元素。
+
+显然，2，3方法比较适用于实际情况。
+另外，据说IOS8以后click事件已经没有那300ms的延时？待鉴定呢！">
+<meta property="og:updated_time" content="2017-02-08T15:36:07.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Daniel的blog">
-<meta name="twitter:description" content="Daniel的blog">
+<meta name="twitter:title" content="IOS click事件">
+<meta name="twitter:description" content="算是IOS的bug吧，如果不用fastclick之类的工具来处理，想用原生click事件，如果不是a标签或者input标签，click事件不能冒泡到body上。解决方法：
+
+事件直接绑定到元素上。
+要冒泡的元素加上cursor:pointer;
+监听的元素改成body内的其它父元素。
+
+显然，2，3方法比较适用于实际情况。
+另外，据说IOS8以后click事件已经没有那300ms的延时？待鉴定呢！">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -62,96 +84,59 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/12/29/2016-12-29-node-require/" class="archive-article-date">
-  <time datetime="2016-12-29T15:19:57.955Z" itemprop="datePublished">12月 29</time>
+        <section id="main"><article id="post-2017-02-08" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/08/2017-02-08/" class="article-date">
+  <time datetime="2017-02-08T15:36:07.266Z" itemprop="datePublished">2017-02-08</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/29/2016-12-29-node-require/">nodejs require语法简析</a>
+    <h1 class="article-title" itemprop="name">
+      IOS click事件
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/12/25/2016-12-25/" class="archive-article-date">
-  <time datetime="2016-12-25T14:17:22.224Z" itemprop="datePublished">12月 25</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/25/2016-12-25/">Immutable学习小记</a>
-    </h1>
-  
+        <p>算是IOS的bug吧，如果不用fastclick之类的工具来处理，想用原生click事件，如果不是a标签或者input标签，click事件不能冒泡到body上。解决方法：</p>
+<ol>
+<li>事件直接绑定到元素上。</li>
+<li>要冒泡的元素加上cursor:pointer;</li>
+<li>监听的元素改成body内的其它父元素。</li>
+</ol>
+<p>显然，2，3方法比较适用于实际情况。</p>
+<p>另外，据说IOS8以后click事件已经没有那300ms的延时？待鉴定呢！</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/12/20/2016-12-20/" class="archive-article-date">
-  <time datetime="2016-12-20T13:32:56.788Z" itemprop="datePublished">12月 20</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/20/2016-12-20/">2016-12-20工作小结</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/12/14/hello-world/" class="archive-article-date">
-  <time datetime="2016-12-14T02:31:06.399Z" itemprop="datePublished">12月 14</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/02/08/2017-02-08/" data-id="ciyx4hpad00039oteeoxmg2g5" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/14/hello-world/">博客迁移计划</a>
-    </h1>
-  
-
-    </header>
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/07/2017-02-7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
