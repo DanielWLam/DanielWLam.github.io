@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Daniel的blog</title>
+  <title>2017-02-13工作小结 | Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="怎么没有contributionfffff">
+  <meta name="description" content="周末跑脚本，跑了72小时还没跑完。本地脚本，请求web服务器，再请求数据服务器，非常慢。。。另外两个脚本是弄NAPI的追尾数据，更新一些数据。中途断了一次，在for循环中好好的就断开了，没有catch到错误信息，发现用co来搞开发，catch的时候很多语法错误这些catch不到，在调试错误的时候浪费了时间。
+另外，打算有空优化一下数据库，说实话，现在select count一个表80+万的数据，要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Daniel的blog">
-<meta property="og:url" content="https://danielwlam.github.io/2017/02/03/readme/index.html">
+<meta property="og:title" content="2017-02-13工作小结">
+<meta property="og:url" content="https://danielwlam.github.io/2017/02/13/2017-02-13/index.html">
 <meta property="og:site_name" content="Daniel的blog">
-<meta property="og:description" content="怎么没有contributionfffff">
-<meta property="og:updated_time" content="2017-02-04T15:36:07.884Z">
+<meta property="og:description" content="周末跑脚本，跑了72小时还没跑完。本地脚本，请求web服务器，再请求数据服务器，非常慢。。。另外两个脚本是弄NAPI的追尾数据，更新一些数据。中途断了一次，在for循环中好好的就断开了，没有catch到错误信息，发现用co来搞开发，catch的时候很多语法错误这些catch不到，在调试错误的时候浪费了时间。
+另外，打算有空优化一下数据库，说实话，现在select count一个表80+万的数据，要">
+<meta property="og:updated_time" content="2017-02-13T13:46:14.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Daniel的blog">
-<meta name="twitter:description" content="怎么没有contributionfffff">
+<meta name="twitter:title" content="2017-02-13工作小结">
+<meta name="twitter:description" content="周末跑脚本，跑了72小时还没跑完。本地脚本，请求web服务器，再请求数据服务器，非常慢。。。另外两个脚本是弄NAPI的追尾数据，更新一些数据。中途断了一次，在for循环中好好的就断开了，没有catch到错误信息，发现用co来搞开发，catch的时候很多语法错误这些catch不到，在调试错误的时候浪费了时间。
+另外，打算有空优化一下数据库，说实话，现在select count一个表80+万的数据，要">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -63,24 +66,38 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-readme" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2017-02-13" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/02/03/readme/" class="article-date">
-  <time datetime="2017-02-03T14:57:27.465Z" itemprop="datePublished">2017-02-03</time>
+    <a href="/2017/02/13/2017-02-13/" class="article-date">
+  <time datetime="2017-02-13T13:40:42.692Z" itemprop="datePublished">2017-02-13</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2017-02-13工作小结
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>怎么没有contributionfffff</p>
+        <p>周末跑脚本，跑了72小时还没跑完。本地脚本，请求web服务器，再请求数据服务器，非常慢。。。另外两个脚本是弄NAPI的追尾数据，更新一些数据。中途断了一次，在for循环中好好的就断开了，没有catch到错误信息，发现用co来搞开发，catch的时候很多语法错误这些catch不到，在调试错误的时候浪费了时间。</p>
+<p>另外，打算有空优化一下数据库，说实话，现在select count一个表80+万的数据，要13秒。。这速度是绝对不能忍受的。虽然已经有redis做了缓存，但这查询速度是不允许存在的，这么慢。明明建立了索引，但是explain的时候，并没有使用到索引。深深地怀疑索引建立得有问题！</p>
+<p>看看明天数据跑下来没有。要开始部署上线的统计模块了！</p>
+<p>另外，今天自己搞了个小需求来做，顺便复习了一下deku+redux的开发模式。差点都忘了呢！一定要前后端兼顾！</p>
+<p>最后一句鸡汤：当你感觉不舒服的时候，就是你成长的时候。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/03/readme/" data-id="ciz45mr5d00095gteeruxlbz3" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/13/2017-02-13/" data-id="ciz45mr4x00035gteeh5gryy3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -89,19 +106,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/02/07/2017-02-7/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/03/2017-02-03/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/02/08/2017-02-08/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">mysql select in 按所选择的排序</div>
+      <div class="article-nav-title">IOS click事件</div>
     </a>
   
 </nav>

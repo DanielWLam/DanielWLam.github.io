@@ -64,6 +64,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2016-12-20" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/20/2016-12-20/" class="article-date">
+  <time datetime="2016-12-20T13:32:56.788Z" itemprop="datePublished">2016-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/20/2016-12-20/">2016-12-20工作小结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="deku"><a href="#deku" class="headerlink" title="deku"></a>deku</h2><p>从昨天开始，正式接触scrat+deku+redux+stylus的工作开发流。凭借着react和jsx的一点点基础知识，可以较快得掌握redux。其实就是几个知识点：</p>
+<ol>
+<li>生命周期: shouldUpdate, shouldRender, render, afterRender, afterUpdate，afterMount等</li>
+<li>render前需要遍历生成的html需要自己遍历，return()标签</li>
+<li>onClick, onInput等事件变成这样的形式等</li>
+</ol>
+<h2 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h2><p>搭配deku，有很多隐藏的知识点，文档上已经有说明了，但是单单看文档是不够的，最重要的是什么，“打”，使劲地打demo，“站在岸上学不会有用”。</p>
+<h3 id="几个基本概念"><a href="#几个基本概念" class="headerlink" title="几个基本概念"></a>几个基本概念</h3><ol>
+<li>actions： 保存了操作的类型，通常是个对象，如</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">	<span class="attr">text</span>: <span class="string">'hello'</span> <span class="comment">//需要传的参数</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>reducers:定义了初始状态和action的处理方法，用switch判断action的type，对应不同的处理方式</li>
+<li>actionCreator:创建action的函数，比如</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">type</span>: <span class="string">'ADD_TODO'</span></div><div class="line">		text</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>store：dispatch(action)，主要用于发送事件<br>shexo<h3 id="几个有用的API"><a href="#几个有用的API" class="headerlink" title="几个有用的API"></a>几个有用的API</h3></li>
+<li>createStore：传入reducers，创建store对象；</li>
+<li>combineReducers：当项目大时，通常把reducers分成很多个小文件，通过这个API，把reducers组织为一个，因为通常一个应用只能有一个store，所以传入的reducers一般就是用这个API聚合而成；</li>
+<li>bindActionCreators:通过传入actionCreators来使dispatch变得全局可用。通常dispatch只能由store发出，但是通过这个API就不需要传store了，直接dispatch就好了。</li>
+</ol>
+<h2 id="stylus"><a href="#stylus" class="headerlink" title="stylus"></a>stylus</h2><p>其实个人感觉这个CSS预处理器都大同小异，但是团队目前的语法是省略大括号｛｝，省略冒号：，省略分号；    还在努力适应中。。。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="ciz45mr4s00015gte45jofqiq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/14/hello-world/" class="article-date">
@@ -93,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="ciyx4hpav00099ote0a5axokc" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="ciz45mr8u000b5gte61v2qx52" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,6 +196,10 @@
       <ul>
         
           <li>
+            <a href="/2017/02/13/2017-02-13/">2017-02-13工作小结</a>
+          </li>
+        
+          <li>
             <a href="/2017/02/08/2017-02-08/">IOS click事件</a>
           </li>
         
@@ -150,10 +213,6 @@
         
           <li>
             <a href="/2017/02/03/2017-02-03/">mysql select in 按所选择的排序</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/24/2017-01-24/">小记</a>
           </li>
         
       </ul>
