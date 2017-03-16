@@ -3,23 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>博客迁移计划 | Daniel的blog</title>
+  <title>JS继承小感 | Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：http://www.cnblogs.com/danielweb也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。
-请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！">
+  <meta name="description" content="事实上，我并不是想长篇大论地说什么继承的实现，而是想聊点别的。
+我们知道，es6推出已经快2年了，class属性也在很多很多地方大放异彩，比如react等等。即使是自己要造些轮子，你可能也不会再像es5时代那样，自己去做封装了。我想，这时技术发展的一个必然趋势。
+然而，问题在于，当你越来越多地使用新特性（语法糖），而且，这些新语法确确实实比以前方便了很多很多很多，还是举class为例子，实现一个继">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客迁移计划">
-<meta property="og:url" content="https://danielwlam.github.io/2016/12/14/hello-world/index.html">
+<meta property="og:title" content="JS继承小感">
+<meta property="og:url" content="https://danielwlam.github.io/2017/03/16/2017-03-16/index.html">
 <meta property="og:site_name" content="Daniel的blog">
-<meta property="og:description" content="欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：http://www.cnblogs.com/danielweb也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。
-请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！">
-<meta property="og:image" content="http://pic.gansudaily.com.cn/0/10/92/42/10924286_743216.jpg">
-<meta property="og:updated_time" content="2016-12-14T03:41:16.450Z">
+<meta property="og:description" content="事实上，我并不是想长篇大论地说什么继承的实现，而是想聊点别的。
+我们知道，es6推出已经快2年了，class属性也在很多很多地方大放异彩，比如react等等。即使是自己要造些轮子，你可能也不会再像es5时代那样，自己去做封装了。我想，这时技术发展的一个必然趋势。
+然而，问题在于，当你越来越多地使用新特性（语法糖），而且，这些新语法确确实实比以前方便了很多很多很多，还是举class为例子，实现一个继">
+<meta property="og:updated_time" content="2017-03-16T14:48:37.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客迁移计划">
-<meta name="twitter:description" content="欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：http://www.cnblogs.com/danielweb也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。
-请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！">
-<meta name="twitter:image" content="http://pic.gansudaily.com.cn/0/10/92/42/10924286_743216.jpg">
+<meta name="twitter:title" content="JS继承小感">
+<meta name="twitter:description" content="事实上，我并不是想长篇大论地说什么继承的实现，而是想聊点别的。
+我们知道，es6推出已经快2年了，class属性也在很多很多地方大放异彩，比如react等等。即使是自己要造些轮子，你可能也不会再像es5时代那样，自己去做封装了。我想，这时技术发展的一个必然趋势。
+然而，问题在于，当你越来越多地使用新特性（语法糖），而且，这些新语法确确实实比以前方便了很多很多很多，还是举class为例子，实现一个继">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -68,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2017-03-16" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/14/hello-world/" class="article-date">
-  <time datetime="2016-12-14T02:31:06.399Z" itemprop="datePublished">2016-12-14</time>
+    <a href="/2017/03/16/2017-03-16/" class="article-date">
+  <time datetime="2017-03-16T14:37:57.048Z" itemprop="datePublished">2017-03-16</time>
 </a>
     
   </div>
@@ -82,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      博客迁移计划
+      JS继承小感
     </h1>
   
 
@@ -90,14 +91,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>欢迎来到召唤师…，不对，欢迎来到我的博客。这是我的新家。之前的博客：<a href="http://www.cnblogs.com/danielweb" target="_blank" rel="external">http://www.cnblogs.com/danielweb</a>也在用，开这个新博客的原因很纯粹，练习一下搭建博客，另外，直接github这里写博客，contribute的图标也会好看点，哈哈哈。</p>
-<p>请记住，新旧博客都会一起维护，后期我看看怎么弄个工具，写一次，然后两边都更新吧！</p>
-<p><img src="http://pic.gansudaily.com.cn/0/10/92/42/10924286_743216.jpg" alt="Alt hahah"></p>
+        <p>事实上，我并不是想长篇大论地说什么继承的实现，而是想聊点别的。</p>
+<p>我们知道，es6推出已经快2年了，class属性也在很多很多地方大放异彩，比如react等等。即使是自己要造些轮子，你可能也不会再像es5时代那样，自己去做封装了。我想，这时技术发展的一个必然趋势。</p>
+<p>然而，问题在于，当你越来越多地使用新特性（语法糖），而且，这些新语法确确实实比以前方便了很多很多很多，还是举class为例子，实现一个继承仅仅几个关键字extends, constructor, super。 你还记得es5要怎么做吗？先不说实现继承的集中方法了，什么原型式继承，组合继承，寄生继承，寄生组合继承一堆东西，即使是实现一个构造函数的封装，也是够麻烦的。我想说的是，我们总有一天会遗忘这些旧知识，拥抱新的知识，那这些知识我们还需要去学习，需要时常去复习吗？</p>
+<p>我知道我问了一似乎很蠢的问题。这个问题没有标准的答案，起码目前来说。但我相信，给点时间，这些早晚不需要再去了解。打个并不十分恰当的比方，以前有汇编这种比较底层的语言，也有C这种高级语言，我想那个时候的程序员们应该也有类似的疑问，“我要不要去明白原理？”。但是放到今天来，我不能说百分百，但是起码绝大部分人，不需要理解原理，依然能用得好好的。</p>
+<p>胡说了一堆，其实只是因为今天自己对这方面的知识又有点忘了。人都是懒的，不管怎样，拥抱未来吧。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="cj0ciixrl000a68te9poppgss" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/03/16/2017-03-16/" data-id="cj0ciixr8000368tem3m02f41" class="article-share-link">Share</a>
       
       
     </footer>
@@ -106,15 +109,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/12/20/2016-12-20/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          2016-12-20工作小结
-        
-      </div>
-    </a>
   
+    <a href="/2017/02/13/2017-02-13/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2017-02-13工作小结</div>
+    </a>
   
 </nav>
 
