@@ -64,6 +64,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2017-03-23" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/23/2017-03-23/" class="article-date">
+  <time datetime="2017-03-23T14:48:34.055Z" itemprop="datePublished">2017-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/23/2017-03-23/">Javascript生成笛卡尔积简便方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。</p>
+<p>这里引用一下这位大神的<a href="http://cwestblog.com/2011/05/02/cartesian-product-of-multiple-arrays/" target="_blank" rel="external">博客</a>，实现非常简单：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">combine</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.reduce.call(<span class="built_in">arguments</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> ret = [];</div><div class="line">        a.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">            b.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">                ret.push(a.concat([b]))</div><div class="line">            &#125;)</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;, [[]])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>突然感觉啊，很多API虽然大多数情况，用不上，但是关键时刻，想一想还是挺巧妙的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/03/23/2017-03-23/" data-id="cj0mikmoh0007r8tejct5vi2b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2017-03-16" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/16/2017-03-16/" class="article-date">
@@ -95,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/03/16/2017-03-16/" data-id="cj0ciixr8000368tem3m02f41" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/03/16/2017-03-16/" data-id="cj0mikmom000ar8tearbeo4xa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -136,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/13/2017-02-13/" data-id="cj0ciixrh000868tenk88r43l" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/13/2017-02-13/" data-id="cj0mikmom0009r8teeth18vmu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/08/2017-02-08/" data-id="cj0ciixre000768te83xbaium" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/08/2017-02-08/" data-id="cj0mikmnz0004r8te5nxjoqof" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="cj0ciixrb000568tefa2b3i56" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="cj0mikmol0008r8tewsijo23b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -243,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/03/readme/" data-id="cj0ciixrj000968tel1ouxbdz" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/03/readme/" data-id="cj0mikmom000br8tewg3w2vhg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -284,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/03/2017-02-03/" data-id="cj0ciixr3000168teivwqsqe2" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/03/2017-02-03/" data-id="cj0mikmnz0003r8teg4t315po" class="article-share-link">Share</a>
       
       
     </footer>
@@ -330,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/24/2017-01-24/" data-id="cj0ciixrc000668teaggrgpef" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/24/2017-01-24/" data-id="cj0mikmnz0005r8tewfgmbntx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -384,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/18/linux-mysql/" data-id="cj0ciixrm000b68te1l5idzmd" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/18/linux-mysql/" data-id="cj0mikmre000dr8tembxiwfq0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -423,68 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/16/2017-01-16-egg/" data-id="cj0ciixr6000268tee4c92r52" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2016-12-29-node-require" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/29/2016-12-29-node-require/" class="article-date">
-  <time datetime="2016-12-29T15:19:57.955Z" itemprop="datePublished">2016-12-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/29/2016-12-29-node-require/">nodejs require语法简析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>require(arg)</p>
-<p>arg要么是文件名，要么是路径，如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> level3_1 = <span class="built_in">require</span>(<span class="string">'level3_1.js'</span>); <span class="comment">//文件.js</span></div><div class="line"><span class="keyword">var</span> level3_2 = <span class="built_in">require</span>(<span class="string">'./level3_2.js'</span>); <span class="comment">//路径+文件.js</span></div><div class="line"><span class="keyword">var</span> level3_3 = <span class="built_in">require</span>(<span class="string">'./level3_3'</span>); <span class="comment">//路径+文件</span></div><div class="line"><span class="keyword">var</span> inlevel3_3 = <span class="built_in">require</span>(<span class="string">'./level3_3/'</span>); <span class="comment">//路径/</span></div><div class="line"><span class="keyword">var</span> level3_4 = <span class="built_in">require</span>(<span class="string">'level3_4'</span>); <span class="comment">//文件</span></div><div class="line"></div><div class="line">level3_1(); <span class="comment">//i am 3_1</span></div><div class="line">level3_2(); <span class="comment">//i am 3_2</span></div><div class="line">level3_3(); <span class="comment">//i am 3_3</span></div><div class="line">inlevel3_3; <span class="comment">//i am 3_3 in directory</span></div><div class="line">level3_4(); <span class="comment">//i am 3_4</span></div></pre></td></tr></table></figure>
-<h2 id="require-x"><a href="#require-x" class="headerlink" title="require(x)"></a>require(x)</h2><ol>
-<li>如果x是核心模块，直接加载</li>
-<li>如果x是以./或者/或者../开头的，则认为是路径，则先尝试当作文件加载的方式加载，找不到就按路径加载的方式加载</li>
-<li>如果直接是一个名字，则按node_modules方式加载</li>
-</ol>
-<h3 id="文件加载："><a href="#文件加载：" class="headerlink" title="文件加载："></a>文件加载：</h3><ol>
-<li>如果X是一个文件，则直接加载X作为js文件加载；</li>
-<li>如果X.js存在，则加载x.js</li>
-<li>如果X.json存在，则把x.json的内容作为js对象加载；</li>
-<li>如果x.node存在，则把x.node作为二进制文件加载；</li>
-</ol>
-<h3 id="路径加载："><a href="#路径加载：" class="headerlink" title="路径加载："></a>路径加载：</h3><ol>
-<li>如果X/package.json存在， 把package.json里main指向的文件加载；</li>
-<li>如果X/index.js存在，则加载X/index.js</li>
-<li>如果X/index.json存在，则把X/index.json的内容作为js对象加载；</li>
-<li>如果X/index.node存在，则以二进制文件的方式加载x.node</li>
-</ol>
-<h3 id="node-modules加载："><a href="#node-modules加载：" class="headerlink" title="node_modules加载："></a>node_modules加载：</h3><p>从本文件所在目录开始，执行</p>
-<ol>
-<li>问文件加载的方式加载目录下node_moudles的X</li>
-<li>没有找到的话，就按路径加载的方式加载该目录下node_moudles的X, 直到全局NODE_MODULES</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="cj0ciixrn000c68tehq7gjel5" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/16/2017-01-16-egg/" data-id="cj0mikmnz0002r8texnwf06ny" class="article-share-link">Share</a>
       
       
     </footer>
@@ -528,6 +507,10 @@
       <ul>
         
           <li>
+            <a href="/2017/03/23/2017-03-23/">Javascript生成笛卡尔积简便方法</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/16/2017-03-16/">JS继承小感</a>
           </li>
         
@@ -541,10 +524,6 @@
         
           <li>
             <a href="/2017/02/07/2017-02-7/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/03/readme/">(no title)</a>
           </li>
         
       </ul>

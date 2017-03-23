@@ -3,30 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>小记 | Daniel的blog</title>
+  <title>Javascript生成笛卡尔积简便方法 | Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="昨晚下班后把周末积压的开源项目，一个微信调试工具的其中一个功能做好了，提了PR。 然后这两天白天都在埋头做egg方面的工作，写后台去了。作为一个正儿八经的前端工程师，又去写后台了，感觉是要往fullstack的方向发展啊。不过话说回来，后端恰恰是我薄弱的地方，不然我为何搞前端呢。
-不过现在既然命运是这样的安排，那还能怎么样呢？默默地跟自己说一声：“一切都是最好的安排”。
-定个春节小计划吧：
-
-看完">
+  <meta name="description" content="这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。
+这里引用一下这位大神的博客，实现非常简单：
+123456789101112function combine() &amp;#123;    return Array.prototype.reduce.call(arguments, function(a, b) &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小记">
-<meta property="og:url" content="https://danielwlam.github.io/2017/01/24/2017-01-24/index.html">
+<meta property="og:title" content="Javascript生成笛卡尔积简便方法">
+<meta property="og:url" content="https://danielwlam.github.io/2017/03/23/2017-03-23/index.html">
 <meta property="og:site_name" content="Daniel的blog">
-<meta property="og:description" content="昨晚下班后把周末积压的开源项目，一个微信调试工具的其中一个功能做好了，提了PR。 然后这两天白天都在埋头做egg方面的工作，写后台去了。作为一个正儿八经的前端工程师，又去写后台了，感觉是要往fullstack的方向发展啊。不过话说回来，后端恰恰是我薄弱的地方，不然我为何搞前端呢。
-不过现在既然命运是这样的安排，那还能怎么样呢？默默地跟自己说一声：“一切都是最好的安排”。
-定个春节小计划吧：
-
-看完">
-<meta property="og:updated_time" content="2017-01-24T15:24:04.342Z">
+<meta property="og:description" content="这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。
+这里引用一下这位大神的博客，实现非常简单：
+123456789101112function combine() &amp;#123;    return Array.prototype.reduce.call(arguments, function(a, b) &amp;#123;">
+<meta property="og:updated_time" content="2017-03-23T14:48:34.130Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小记">
-<meta name="twitter:description" content="昨晚下班后把周末积压的开源项目，一个微信调试工具的其中一个功能做好了，提了PR。 然后这两天白天都在埋头做egg方面的工作，写后台去了。作为一个正儿八经的前端工程师，又去写后台了，感觉是要往fullstack的方向发展啊。不过话说回来，后端恰恰是我薄弱的地方，不然我为何搞前端呢。
-不过现在既然命运是这样的安排，那还能怎么样呢？默默地跟自己说一声：“一切都是最好的安排”。
-定个春节小计划吧：
-
-看完">
+<meta name="twitter:title" content="Javascript生成笛卡尔积简便方法">
+<meta name="twitter:description" content="这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。
+这里引用一下这位大神的博客，实现非常简单：
+123456789101112function combine() &amp;#123;    return Array.prototype.reduce.call(arguments, function(a, b) &amp;#123;">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -75,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2017-01-24" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2017-03-23" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/24/2017-01-24/" class="article-date">
-  <time datetime="2017-01-24T15:18:12.428Z" itemprop="datePublished">2017-01-24</time>
+    <a href="/2017/03/23/2017-03-23/" class="article-date">
+  <time datetime="2017-03-23T14:48:34.055Z" itemprop="datePublished">2017-03-23</time>
 </a>
     
   </div>
@@ -89,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      小记
+      Javascript生成笛卡尔积简便方法
     </h1>
   
 
@@ -97,21 +91,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>昨晚下班后把周末积压的开源项目，一个微信调试工具的其中一个功能做好了，提了PR。 然后这两天白天都在埋头做egg方面的工作，写后台去了。作为一个正儿八经的前端工程师，又去写后台了，感觉是要往fullstack的方向发展啊。不过话说回来，后端恰恰是我薄弱的地方，不然我为何搞前端呢。</p>
-<p>不过现在既然命运是这样的安排，那还能怎么样呢？默默地跟自己说一声：“一切都是最好的安排”。</p>
-<p>定个春节小计划吧：</p>
-<ol>
-<li>看完图解HTTP</li>
-<li>学完菜鸟教程的mysql</li>
-<li>学完菜鸟教程的redis</li>
-<li>过一遍大学的数据库教程</li>
-</ol>
-<p>你问为什么这么定计划？ 首先图解HTTP是前一个月拖下的任务了，得赶紧<br>解决。然后春节后主要工作重心在后台，所以要趁7天假期，赶紧补起来。<br>其实想学的，要学的多得很，现在能深刻体会到时间的短暂了。好吧！接下来春节7天，就定个每天计划，按计划打卡吧！不然计划周期太长很容易废掉！</p>
+        <p>这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。</p>
+<p>这里引用一下这位大神的<a href="http://cwestblog.com/2011/05/02/cartesian-product-of-multiple-arrays/" target="_blank" rel="external">博客</a>，实现非常简单：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">combine</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.reduce.call(<span class="built_in">arguments</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> ret = [];</div><div class="line">        a.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">            b.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">                ret.push(a.concat([b]))</div><div class="line">            &#125;)</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;, [[]])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>突然感觉啊，很多API虽然大多数情况，用不上，但是关键时刻，想一想还是挺巧妙的。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/24/2017-01-24/" data-id="cj0mikmnz0005r8tewfgmbntx" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/03/23/2017-03-23/" data-id="cj0mikmoh0007r8tejct5vi2b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,19 +108,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/02/03/2017-02-03/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          mysql select in 按所选择的排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/18/linux-mysql/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/16/2017-03-16/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">linux安装mysql</div>
+      <div class="article-nav-title">JS继承小感</div>
     </a>
   
 </nav>
