@@ -64,6 +64,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2017-04-11" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/11/2017-04-11/" class="article-date">
+  <time datetime="2017-04-11T13:10:44.061Z" itemprop="datePublished">2017-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/2017-04-11/">一道笔试题考察reduce和valueOf，toString</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目：编写一个函数能返回以下结果：</p>
+<p>add(1)(2) // 3<br>add(1, 2, 3)(4) // 10<br>add(1)(2)(3)(4) // 10</p>
+<p>这个题，其实要满足第一，二种情况还是比较简单，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params">...args</span>) </span>&#123;</div><div class="line">	<span class="keyword">let</span> sum = args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">..._args</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> _args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b, sum)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但真正的难点在于第三种情况，怎么样让这个add函数既返回闭包，又返回值呢？在看了一些资料后，发现要用上函数的valueOf或toString，直接上代码吧：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">_add</span>(<span class="params">..._args</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> add.apply(<span class="keyword">this</span>, args.concat(_args))</div><div class="line">  &#125;</div><div class="line">  _add.valueOf = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  	<span class="keyword">let</span> sum = args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</div><div class="line">  	<span class="keyword">return</span> args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> _add;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>首先要说明的是对于函数，valueOf的优先级比toString高。代码行数不多，但其实里面考察的知识挺多的，一个是函数的valueOf和toString，这个大家可以动手试试直接把valueOf返回一个值，当这个函数没有返回值的时候，就是调用的valueOf，而同时设置valueOf或者toString，则以valueOf为准，也就是优先级更高。</p>
+<p>另外考察了reduce的玩法，最近看的redux源码也是把reduce这个方法玩得很溜，用来做函数柯里化的利器。</p>
+<p>最后考察的当然就是闭包了，还有apply的使用，这里-add闭包return时使用的是apply，就很巧妙地把处理过的形参作为apply的参数传递过去了，而不至于后面的运算形成多维数组。</p>
+<p>真的很巧妙，建议自己思考一下！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/04/11/2017-04-11/" data-id="cj1dlzqbs0008o0tebvbxnvnm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-妙语1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/06/妙语1/" class="article-date">
@@ -94,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/04/06/妙语1/" data-id="cj16f94r1000amgte3dpranks" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/04/06/妙语1/" data-id="cj1dlzqc0000do0tev7flnba7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -134,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/03/23/2017-03-23/" data-id="cj16f94qt0008mgtest1g3u06" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/03/23/2017-03-23/" data-id="cj1dlzqc1000eo0te76bzs4qq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -175,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/03/16/2017-03-16/" data-id="cj16f94qz0009mgter9a86ybf" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/03/16/2017-03-16/" data-id="cj1dlzqbz000co0tejdg4qjr3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/13/2017-02-13/" data-id="cj16f94r4000cmgteaj84ndbe" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/13/2017-02-13/" data-id="cj1dlzqbo0007o0tel646oe4o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/08/2017-02-08/" data-id="cj16f94q90005mgte0cj2vr8l" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/08/2017-02-08/" data-id="cj1dlzqby000bo0tea4dsim11" class="article-share-link">Share</a>
       
       
     </footer>
@@ -296,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="cj16f94qc0007mgte0vdkmkoy" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="cj1dlzqbk0005o0tey5uy6a86" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/03/readme/" data-id="cj16f94rx000dmgtept57rtcy" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/03/readme/" data-id="cj1dlzqbw0009o0teq06wpjxl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/03/2017-02-03/" data-id="cj16f94q70004mgtedix3lmpn" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/03/2017-02-03/" data-id="cj1dlzqbh0004o0tewzg9h2sr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -410,61 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/24/2017-01-24/" data-id="cj16f94qb0006mgtecr1puehz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-linux-mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/18/linux-mysql/" class="article-date">
-  <time datetime="2017-01-18T15:02:14.250Z" itemprop="datePublished">2017-01-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/18/linux-mysql/">linux安装mysql</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主要是记录一下几条命令</p>
-<ol>
-<li><p>查看有没有安装过：yum list installed mysql*</p>
-</li>
-<li><p>查看有没有安装包：yum list msql*</p>
-</li>
-</ol>
-<ol>
-<li>如果没有的话，需要先下载yum repo配置文件并安装<ol>
-<li>wget <a href="http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm" target="_blank" rel="external">http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</a></li>
-<li>rpm -ivh mysql57-community-release-el7-9.noarch.rpm</li>
-</ol>
-</li>
-<li>然后就是yum install mysql</li>
-<li>yum install mysql-server</li>
-<li>yum install mysql-devel</li>
-</ol>
-<p>题外话：今天我安装的时候，似乎直接指定3.2就行了，没有执行3.1</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/18/linux-mysql/" data-id="cj16f94ry000emgter9db8gds" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/24/2017-01-24/" data-id="cj1dlzqbf0003o0tek3k7b5z9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -508,6 +498,10 @@
       <ul>
         
           <li>
+            <a href="/2017/04/11/2017-04-11/">一道笔试题考察reduce和valueOf，toString</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/06/妙语1/">妙语壹</a>
           </li>
         
@@ -521,10 +515,6 @@
         
           <li>
             <a href="/2017/02/13/2017-02-13/">2017-02-13工作小结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/08/2017-02-08/">IOS click事件</a>
           </li>
         
       </ul>

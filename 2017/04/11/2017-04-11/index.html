@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一道笔试题考察reduce和valueOf，toString | Daniel的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目：编写一个函数能返回以下结果：
+add(1)(2) // 3add(1, 2, 3)(4) // 10add(1)(2)(3)(4) // 10
+这个题，其实要满足第一，二种情况还是比较简单，如下：1234567function add (...args) &amp;#123;	let sum = args.reduce((a, b) =&amp;gt; a + b)	return function(..._">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一道笔试题考察reduce和valueOf，toString">
+<meta property="og:url" content="https://danielwlam.github.io/2017/04/11/2017-04-11/index.html">
+<meta property="og:site_name" content="Daniel的blog">
+<meta property="og:description" content="题目：编写一个函数能返回以下结果：
+add(1)(2) // 3add(1, 2, 3)(4) // 10add(1)(2)(3)(4) // 10
+这个题，其实要满足第一，二种情况还是比较简单，如下：1234567function add (...args) &amp;#123;	let sum = args.reduce((a, b) =&amp;gt; a + b)	return function(..._">
+<meta property="og:updated_time" content="2017-04-11T13:53:54.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一道笔试题考察reduce和valueOf，toString">
+<meta name="twitter:description" content="题目：编写一个函数能返回以下结果：
+add(1)(2) // 3add(1, 2, 3)(4) // 10add(1)(2)(3)(4) // 10
+这个题，其实要满足第一，二种情况还是比较简单，如下：1234567function add (...args) &amp;#123;	let sum = args.reduce((a, b) =&amp;gt; a + b)	return function(..._">
+  
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Daniel的blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">除了前端技术，应该还会记录些生活趣事吧</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">全部</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://danielwlam.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-04-11" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/11/2017-04-11/" class="article-date">
+  <time datetime="2017-04-11T13:10:44.061Z" itemprop="datePublished">2017-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一道笔试题考察reduce和valueOf，toString
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目：编写一个函数能返回以下结果：</p>
+<p>add(1)(2) // 3<br>add(1, 2, 3)(4) // 10<br>add(1)(2)(3)(4) // 10</p>
+<p>这个题，其实要满足第一，二种情况还是比较简单，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params">...args</span>) </span>&#123;</div><div class="line">	<span class="keyword">let</span> sum = args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">..._args</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> _args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b, sum)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但真正的难点在于第三种情况，怎么样让这个add函数既返回闭包，又返回值呢？在看了一些资料后，发现要用上函数的valueOf或toString，直接上代码吧：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">_add</span>(<span class="params">..._args</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> add.apply(<span class="keyword">this</span>, args.concat(_args))</div><div class="line">  &#125;</div><div class="line">  _add.valueOf = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  	<span class="keyword">let</span> sum = args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</div><div class="line">  	<span class="keyword">return</span> args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> _add;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>首先要说明的是对于函数，valueOf的优先级比toString高。代码行数不多，但其实里面考察的知识挺多的，一个是函数的valueOf和toString，这个大家可以动手试试直接把valueOf返回一个值，当这个函数没有返回值的时候，就是调用的valueOf，而同时设置valueOf或者toString，则以valueOf为准，也就是优先级更高。</p>
+<p>另外考察了reduce的玩法，最近看的redux源码也是把reduce这个方法玩得很溜，用来做函数柯里化的利器。</p>
+<p>最后考察的当然就是闭包了，还有apply的使用，这里-add闭包return时使用的是apply，就很巧妙地把处理过的形参作为apply的参数传递过去了，而不至于后面的运算形成多维数组。</p>
+<p>真的很巧妙，建议自己思考一下！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/04/11/2017-04-11/" data-id="cj1dlzqbs0008o0tebvbxnvnm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/06/妙语1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">妙语壹</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/11/2017-04-11/">一道笔试题考察reduce和valueOf，toString</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/妙语1/">妙语壹</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/23/2017-03-23/">Javascript生成笛卡尔积简便方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/16/2017-03-16/">JS继承小感</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/13/2017-02-13/">2017-02-13工作小结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Daniel Lam<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">全部</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  <!--友盟统计-->
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261171771'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261171771%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>
