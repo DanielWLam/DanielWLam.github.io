@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Daniel的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ES5, ES6, ES2016,ES2017都是什么跟什么
+今天来聊聊这个话题。看到这对名字，相信你跟我一样，有一点疑惑了。
+一方面，我们现在有一部分的js可以直接丢到浏览器里运行，但另一方面，我们也经常看到一些新的，改进的被叫做es6或者es2015的js，这些新版本拥有上百个新的功能，而且看起来像一门新的语言，这到底是咋回事呢？
+好吧，信不信由你，这种现象其实由来已久。那些你可以直接丢浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Daniel的blog">
+<meta property="og:url" content="https://danielwlam.github.io/2017/04/18/2017-04-18/index.html">
+<meta property="og:site_name" content="Daniel的blog">
+<meta property="og:description" content="ES5, ES6, ES2016,ES2017都是什么跟什么
+今天来聊聊这个话题。看到这对名字，相信你跟我一样，有一点疑惑了。
+一方面，我们现在有一部分的js可以直接丢到浏览器里运行，但另一方面，我们也经常看到一些新的，改进的被叫做es6或者es2015的js，这些新版本拥有上百个新的功能，而且看起来像一门新的语言，这到底是咋回事呢？
+好吧，信不信由你，这种现象其实由来已久。那些你可以直接丢浏览器">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492505184940&di=cf4a363a73c43a42761151ae29fd4262&imgtype=0&src=http%3A%2F%2Fimages.cnitblog.com%2Fblog%2F608463%2F201412%2F092228155096076.png">
+<meta property="og:updated_time" content="2017-04-18T14:59:50.186Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Daniel的blog">
+<meta name="twitter:description" content="ES5, ES6, ES2016,ES2017都是什么跟什么
+今天来聊聊这个话题。看到这对名字，相信你跟我一样，有一点疑惑了。
+一方面，我们现在有一部分的js可以直接丢到浏览器里运行，但另一方面，我们也经常看到一些新的，改进的被叫做es6或者es2015的js，这些新版本拥有上百个新的功能，而且看起来像一门新的语言，这到底是咋回事呢？
+好吧，信不信由你，这种现象其实由来已久。那些你可以直接丢浏览器">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492505184940&di=cf4a363a73c43a42761151ae29fd4262&imgtype=0&src=http%3A%2F%2Fimages.cnitblog.com%2Fblog%2F608463%2F201412%2F092228155096076.png">
+  
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Daniel的blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">除了前端技术，应该还会记录些生活趣事吧</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">全部</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://danielwlam.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-04-18" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/18/2017-04-18/" class="article-date">
+  <time datetime="2017-04-18T14:59:50.180Z" itemprop="datePublished">2017-04-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ES5-ES6-ES2016-ES2017都是什么跟什么"><a href="#ES5-ES6-ES2016-ES2017都是什么跟什么" class="headerlink" title="ES5, ES6, ES2016,ES2017都是什么跟什么"></a>ES5, ES6, ES2016,ES2017都是什么跟什么</h2><p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1492505184940&amp;di=cf4a363a73c43a42761151ae29fd4262&amp;imgtype=0&amp;src=http%3A%2F%2Fimages.cnitblog.com%2Fblog%2F608463%2F201412%2F092228155096076.png" alt=""></p>
+<p>今天来聊聊这个话题。看到这对名字，相信你跟我一样，有一点疑惑了。</p>
+<p>一方面，我们现在有一部分的js可以直接丢到浏览器里运行，但另一方面，我们也经常看到一些新的，改进的被叫做es6或者es2015的js，这些新版本拥有上百个新的功能，而且看起来像一门新的语言，这到底是咋回事呢？</p>
+<p>好吧，信不信由你，这种现象其实由来已久。那些你可以直接丢浏览器里跑的JS其实一直都在变化，并且实际上是<a href="http://www.ecma-international.org" target="_blank" rel="external">ECMASciprt</a>的一种实现。</p>
+<p>而ES2015，仅仅指的是这套标准的其中一个版本。</p>
+<p>你可以在这里看到这些标准（实际上，这些标准虽然很难看，但确实很有用）</p>
+<ul>
+<li>ES2015或ES6（两者是一样的）— <a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="external"> http://www.ecma-international.org/ecma-262/6.0/</a></li>
+<li>ES2016 — <a href="https://www.ecma-international.org/ecma-262/7.0/" target="_blank" rel="external">https://www.ecma-international.org/ecma-262/7.0/</a></li>
+<li>ES2017(草案，现在还只是草稿，但之后就会变成标准了)— <a href="https://github.com/tc39/proposals" target="_blank" rel="external">https://github.com/tc39/proposals</a></li>
+</ul>
+<p>这些标准会随着时间自然地被淘汰，比如很久前的ES3，同时被后来的新标准兼容。你可以在<a href="http://kangax.github.io/compat-table/es5/" target="_blank" rel="external">这里</a>看到这些兼容性情况。</p>
+<p>作为一个开发者，这些标准代码可以完成被编译成浏览器识别的版本，所以你完全可以使用这些最新最棒的功能，但是时刻留意关注各种不同JS版本的兼容性也是不少的工作量啊。</p>
+<p>那我们应该怎么愉快地开发呢？</p>
+<p>简单地来说，就是家喻户晓的<a href="https://babeljs.io/" target="_blank" rel="external">babel</a>。Babel是一个用来把新的ES标准编译成浏览器可执行版本js的工具。这以为着，你可以使用所有的ECMA标准提高的新功能，而不需要去担心浏览器是否支持这个语法。通过配置，你甚至可以直接编译ES2017的语法，然后就可以在浏览器或者node环境运行你的代码了！</p>
+<p>那么问题来了，咱们要怎么用好Babel这把利剑呢？</p>
+<p>或许你应该去看看babel的<a href="http://babeljs.io/docs/setup/" target="_blank" rel="external">文档</a>(￣ー￣)</p>
+<p>或者我之后再开个文章来介绍一下babel的使用，那就要你对我的博客保持时刻的关注了！</p>
+<p>参考链接<a href="https://medium.com/@_alexray/es2015-es6-es7-a-whole-new-javascript-23008fd28108" target="_blank" rel="external">https://medium.com/@_alexray/es2015-es6-es7-a-whole-new-javascript-23008fd28108</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/04/18/2017-04-18/" data-id="cj1nofs0q0008hote7qc7tgge" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/11/2017-04-11/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一道笔试题考察reduce和valueOf，toString</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/18/2017-04-18/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/11/2017-04-11/">一道笔试题考察reduce和valueOf，toString</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/妙语1/">妙语壹</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/23/2017-03-23/">Javascript生成笛卡尔积简便方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/16/2017-03-16/">JS继承小感</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Daniel Lam<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">全部</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  <!--友盟统计-->
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261171771'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261171771%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>
