@@ -64,6 +64,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2017-06-13" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/13/2017-06-13/" class="article-date">
+  <time datetime="2017-06-13T15:15:21.580Z" itemprop="datePublished">2017-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/13/2017-06-13/">设置Image对象的src时到底发生了什么！？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在搞些数据采集方面的东西，然后打点有个常用的方法是生成Image标签，指定SRC为目标服务器的接口，即可完成打点，然而事实上，并没有后辣么简单。</p>
+<p>考虑一种情况，PM需要你统计每个链接跳转的点击PV，相信聪明的你这时肯定能很快地完成这个需求：</p>
+<ul>
+<li>找出所有需要统计的a标签</li>
+<li>preventDefault禁止默认的跳转</li>
+<li>Image打点</li>
+<li>location.href跳转</li>
+</ul>
+<p>相信几年前第一批有这个需求的工程师一定也是这么做的，可是后来会发现，打点的数据并不准确，总是会缺失一部分。到底是为什么呢？怀着强烈的好奇心，我进行了如下实验：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> img = <span class="keyword">new</span> Image()</div><div class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</div><div class="line">img.src = <span class="string">'https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png'</span></div><div class="line"><span class="built_in">console</span>.log(<span class="number">456</span>)</div><div class="line">location.href = <span class="string">'http://www.uc.cn/'</span></div></pre></td></tr></table></figure>
+<blockquote>小tips： 在浏览器的控制面板，network中把preservelog开启，可以看到页面跳转前后的抓包情况</blockquote>
+
+<p>这里我把img的src指定为了google的logo，这样可以更加清楚地看到网速的影响（之前在公司做的实验，公司网络太好，一直难以重现），我们来看看抓包的情况：<br><img src="https://user-images.githubusercontent.com/8369212/27091314-5e619b38-5092-11e7-955a-acd8824e38e7.png" alt="img"></p>
+<p>可以看到，请求的google的logo被取消了，说明上面的打点方法在“网速”慢的情况下是不行的。但是到底为什么呢？</p>
+<p>按照大多数人的常识， 我请求发出去了，我不需要管了呀，就像我和你隔着几十米远大喊，我已经说出去了，你听不听得到是另一回事了，我的声波已经发出去了。然而！</p>
+<p>同样的事情，对于网络来说，你的声波可不一定真的发出去了。经过和小伙伴的讨论和查阅资料，这个TCP链接的建立有关。说到这里，相信很多人已经恍然大悟了。日常开发大部分场景都不怎么需要考虑这个问题，然而这里就偏偏是这个问题导致的图片被取消，请求无法建立成功。</p>
+<p>具体来说就是TCP建立链接需要经过3次握手，而这3次握手需要时间短，但毕竟还是要时间的啊！问题就出在这里了。代码的执行逻辑是，当指定src时，浏览器开始建立TCP链接，发出SYN包给目标服务器，服务器收到SYN包，返回SYN+ACK包，浏览器收到，在发送ACK包，这时，TCP才建立起来，才能正常请求资源。所以，当代码逻辑在下一个语句就要进行跳转，而此时TCP的链接都还没有完全建立起来，这个资源就被cancel了。</p>
+<p>有兴趣的还可以看一下chrome是在什么情况下会canceled一个请求！<a href="https://stackoverflow.com/questions/12009423/what-does-status-canceled-for-a-resource-mean-in-chrome-developer-tools" target="_blank" rel="external">https://stackoverflow.com/questions/12009423/what-does-status-canceled-for-a-resource-mean-in-chrome-developer-tools</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/06/13/2017-06-13/" data-id="cj3vr3d5k0009jwtezpdnyyg9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2017-05-01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/02/2017-05-01/" class="article-date">
@@ -82,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/05/02/2017-05-01/" data-id="cj27q1k1m000argteutq5k33r" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/05/02/2017-05-01/" data-id="cj3vr3d5v000ejwteojyznhny" class="article-share-link">Share</a>
       
       
     </footer>
@@ -127,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/04/18/2017-04-18/" data-id="cj27q1k1p000crgteg1g6dsjq" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/04/18/2017-04-18/" data-id="cj3vr3d5w000fjwteiwfrxtbq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -171,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/04/11/2017-04-11/" data-id="cj27q1k1u000grgtewk77fgwu" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/04/11/2017-04-11/" data-id="cj3vr3d5j0008jwtetiqvds3r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/04/06/妙语1/" data-id="cj27q1k1s000ergteq6zj6zcx" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/04/06/妙语1/" data-id="cj3vr3d88000ijwtecf3r0aaf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -251,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/03/23/2017-03-23/" data-id="cj27q1k1l0009rgtei9of1rek" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/03/23/2017-03-23/" data-id="cj3vr3d5n000bjwteczguuu33" class="article-share-link">Share</a>
       
       
     </footer>
@@ -292,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/03/16/2017-03-16/" data-id="cj27q1k1j0008rgtemwvni3zf" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/03/16/2017-03-16/" data-id="cj3vr3d5u000djwter9db6a26" class="article-share-link">Share</a>
       
       
     </footer>
@@ -333,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/13/2017-02-13/" data-id="cj27q1k1c0006rgtet9p1afpb" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/13/2017-02-13/" data-id="cj3vr3d5m000ajwtea9rtmb1o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -377,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/08/2017-02-08/" data-id="cj27q1k1b0005rgtealsn9tai" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/08/2017-02-08/" data-id="cj3vr3d570005jwtej37lt440" class="article-share-link">Share</a>
       
       
     </footer>
@@ -413,34 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="cj27q1k1e0007rgteeozsh7t8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-readme" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/02/03/readme/" class="article-date">
-  <time datetime="2017-02-03T14:57:27.465Z" itemprop="datePublished">2017-02-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>怎么没有contributionfffff</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/03/readme/" data-id="cj27q1k1s000drgtemjdzbyyd" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="cj3vr3d5d0007jwte81qsrtqa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -471,7 +498,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -482,6 +509,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/13/2017-06-13/">设置Image对象的src时到底发生了什么！？</a>
+          </li>
         
           <li>
             <a href="/2017/05/02/2017-05-01/">(no title)</a>
@@ -497,10 +528,6 @@
         
           <li>
             <a href="/2017/04/06/妙语1/">妙语壹</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/23/2017-03-23/">Javascript生成笛卡尔积简便方法</a>
           </li>
         
       </ul>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>设置Image对象的src时到底发生了什么！？ | Daniel的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近在搞些数据采集方面的东西，然后打点有个常用的方法是生成Image标签，指定SRC为目标服务器的接口，即可完成打点，然而事实上，并没有后辣么简单。
+考虑一种情况，PM需要你统计每个链接跳转的点击PV，相信聪明的你这时肯定能很快地完成这个需求：
+
+找出所有需要统计的a标签
+preventDefault禁止默认的跳转
+Image打点
+location.href跳转
+
+相信几年前第一批有这个需求的工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设置Image对象的src时到底发生了什么！？">
+<meta property="og:url" content="https://danielwlam.github.io/2017/06/13/2017-06-13/index.html">
+<meta property="og:site_name" content="Daniel的blog">
+<meta property="og:description" content="最近在搞些数据采集方面的东西，然后打点有个常用的方法是生成Image标签，指定SRC为目标服务器的接口，即可完成打点，然而事实上，并没有后辣么简单。
+考虑一种情况，PM需要你统计每个链接跳转的点击PV，相信聪明的你这时肯定能很快地完成这个需求：
+
+找出所有需要统计的a标签
+preventDefault禁止默认的跳转
+Image打点
+location.href跳转
+
+相信几年前第一批有这个需求的工程">
+<meta property="og:image" content="https://user-images.githubusercontent.com/8369212/27091314-5e619b38-5092-11e7-955a-acd8824e38e7.png">
+<meta property="og:updated_time" content="2017-06-13T15:56:26.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设置Image对象的src时到底发生了什么！？">
+<meta name="twitter:description" content="最近在搞些数据采集方面的东西，然后打点有个常用的方法是生成Image标签，指定SRC为目标服务器的接口，即可完成打点，然而事实上，并没有后辣么简单。
+考虑一种情况，PM需要你统计每个链接跳转的点击PV，相信聪明的你这时肯定能很快地完成这个需求：
+
+找出所有需要统计的a标签
+preventDefault禁止默认的跳转
+Image打点
+location.href跳转
+
+相信几年前第一批有这个需求的工程">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/8369212/27091314-5e619b38-5092-11e7-955a-acd8824e38e7.png">
+  
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Daniel的blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">除了前端技术，应该还会记录些生活趣事吧</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">全部</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://danielwlam.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-06-13" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/13/2017-06-13/" class="article-date">
+  <time datetime="2017-06-13T15:15:21.580Z" itemprop="datePublished">2017-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设置Image对象的src时到底发生了什么！？
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在搞些数据采集方面的东西，然后打点有个常用的方法是生成Image标签，指定SRC为目标服务器的接口，即可完成打点，然而事实上，并没有后辣么简单。</p>
+<p>考虑一种情况，PM需要你统计每个链接跳转的点击PV，相信聪明的你这时肯定能很快地完成这个需求：</p>
+<ul>
+<li>找出所有需要统计的a标签</li>
+<li>preventDefault禁止默认的跳转</li>
+<li>Image打点</li>
+<li>location.href跳转</li>
+</ul>
+<p>相信几年前第一批有这个需求的工程师一定也是这么做的，可是后来会发现，打点的数据并不准确，总是会缺失一部分。到底是为什么呢？怀着强烈的好奇心，我进行了如下实验：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> img = <span class="keyword">new</span> Image()</div><div class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</div><div class="line">img.src = <span class="string">'https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png'</span></div><div class="line"><span class="built_in">console</span>.log(<span class="number">456</span>)</div><div class="line">location.href = <span class="string">'http://www.uc.cn/'</span></div></pre></td></tr></table></figure>
+<blockquote>小tips： 在浏览器的控制面板，network中把preservelog开启，可以看到页面跳转前后的抓包情况</blockquote>
+
+<p>这里我把img的src指定为了google的logo，这样可以更加清楚地看到网速的影响（之前在公司做的实验，公司网络太好，一直难以重现），我们来看看抓包的情况：<br><img src="https://user-images.githubusercontent.com/8369212/27091314-5e619b38-5092-11e7-955a-acd8824e38e7.png" alt="img"></p>
+<p>可以看到，请求的google的logo被取消了，说明上面的打点方法在“网速”慢的情况下是不行的。但是到底为什么呢？</p>
+<p>按照大多数人的常识， 我请求发出去了，我不需要管了呀，就像我和你隔着几十米远大喊，我已经说出去了，你听不听得到是另一回事了，我的声波已经发出去了。然而！</p>
+<p>同样的事情，对于网络来说，你的声波可不一定真的发出去了。经过和小伙伴的讨论和查阅资料，这个TCP链接的建立有关。说到这里，相信很多人已经恍然大悟了。日常开发大部分场景都不怎么需要考虑这个问题，然而这里就偏偏是这个问题导致的图片被取消，请求无法建立成功。</p>
+<p>具体来说就是TCP建立链接需要经过3次握手，而这3次握手需要时间短，但毕竟还是要时间的啊！问题就出在这里了。代码的执行逻辑是，当指定src时，浏览器开始建立TCP链接，发出SYN包给目标服务器，服务器收到SYN包，返回SYN+ACK包，浏览器收到，在发送ACK包，这时，TCP才建立起来，才能正常请求资源。所以，当代码逻辑在下一个语句就要进行跳转，而此时TCP的链接都还没有完全建立起来，这个资源就被cancel了。</p>
+<p>有兴趣的还可以看一下chrome是在什么情况下会canceled一个请求！<a href="https://stackoverflow.com/questions/12009423/what-does-status-canceled-for-a-resource-mean-in-chrome-developer-tools" target="_blank" rel="external">https://stackoverflow.com/questions/12009423/what-does-status-canceled-for-a-resource-mean-in-chrome-developer-tools</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/06/13/2017-06-13/" data-id="cj3vr3d5k0009jwtezpdnyyg9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/02/2017-05-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/13/2017-06-13/">设置Image对象的src时到底发生了什么！？</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/2017-05-01/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/18/2017-04-18/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/11/2017-04-11/">一道笔试题考察reduce和valueOf，toString</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/妙语1/">妙语壹</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Daniel Lam<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">全部</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  <!--友盟统计-->
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261171771'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261171771%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>
