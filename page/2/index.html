@@ -64,6 +64,42 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2017-02-7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/07/2017-02-7/" class="article-date">
+  <time datetime="2017-02-07T14:49:31.477Z" itemprop="datePublished">2017-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="2017-02-07工作小结"><a href="#2017-02-07工作小结" class="headerlink" title="2017-02-07工作小结"></a>2017-02-07工作小结</h2><p>今日部署服务器。从师兄那拿到服务器，本来以为很多东西都搞好了，万万没想到，服务器上是什么都设置。。。这其中就包括服务器的时间， date直接看到的时间是西七区的时间。</p>
+<h4 id="系统时间"><a href="#系统时间" class="headerlink" title="系统时间"></a>系统时间</h4><p>linux上的时间有两个，一个是BIOS的硬件时间，一个是系统时间。<br>硬件时间通过hwclock –show查看，hwclock –set –date=”月/日/年 时/分/秒”来设置，系统时间通过date查看，date -s ‘同上’来设置。</p>
+<p>另外可以用hwclock –hctosys来用硬件时间同步到系统时间</p>
+<p>用h2clock –systohc用系统时间同步到硬件时间。</p>
+<p>除了上面说的方法外，还可以用tzselect来设置，具体就是输入这个命令后，选择自己所属的市区，一般会选到Asia/Shanghai， 然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
+<p>即可。</p>
+<h4 id="mysql时间"><a href="#mysql时间" class="headerlink" title="mysql时间"></a>mysql时间</h4><p>设置完系统的时间，还要设置mysql的市区。因为默认是按服务器地址来的，所以如果服务器不在中国，就要自己设置一下了。首先先看一下目前的时区, show variables like ‘%time_zone%’看看是不是其他的，默认是system，可以mysql的安装目录下的my.ini或者my.cnf，vi打开，添加一行[mysqld]下添加default-time-zone=’+08:00’。然后重启mysql。改好后用select now()来验证，正确的话，跟你电脑上的时间应该是一样的。</p>
+<h4 id="传输的时间"><a href="#传输的时间" class="headerlink" title="传输的时间"></a>传输的时间</h4><p>从mysql选择出的datetime格式时间，放到node是正确的Date对象，然而在接口中传到C端时，会被自动转化为ISO时间，也就是0时区的时间，于是就少了8个小时。这时候，今天的处理方式是传输前先把Date对象用moment处理成需要的格式。其实感觉应该有什么方法可以直接用数据库的时间的吧？不然不是挺蛋疼的？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://danielwlam.github.io/2017/02/07/2017-02-7/" data-id="cj5v6x481000938teu0eprxi5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-readme" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/02/03/readme/" class="article-date">
@@ -81,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/03/readme/" data-id="cj3vr3d5s000cjwtenrolasex" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/03/readme/" data-id="cj5v6x481000g38temqf24lrq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -122,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/02/03/2017-02-03/" data-id="cj3vr3d560004jwteywpzi0hy" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/02/03/2017-02-03/" data-id="cj5v6x47k000338te77tv08jw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/24/2017-01-24/" data-id="cj3vr3d520002jwtefks1ldo6" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/24/2017-01-24/" data-id="cj5v6x47l000638tecc67yugw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -222,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/18/linux-mysql/" data-id="cj3vr3d5x000gjwtejvc1lscx" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/18/linux-mysql/" data-id="cj5v6x4ho000i38te0cxcfdyr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -261,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/01/16/2017-01-16-egg/" data-id="cj3vr3d5b0006jwteoux09xeb" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/01/16/2017-01-16-egg/" data-id="cj5v6x47l000438tew8bhl34k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="cj3vr3d550003jwte66eazq3b" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/29/2016-12-29-node-require/" data-id="cj5v6x47l000538te1jnwr2oe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -358,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/25/2016-12-25/" data-id="cj3vr3d4t0000jwteof55wkow" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/25/2016-12-25/" data-id="cj5v6x46z000038teg7wg34ei" class="article-share-link">Share</a>
       
       
     </footer>
@@ -417,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="cj3vr3d4z0001jwte8dpfvkx6" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/20/2016-12-20/" data-id="cj5v6x46z000138teuagrofk3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -456,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="cj3vr3d7r000hjwteaz9ps408" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2016/12/14/hello-world/" data-id="cj5v6x481000c38teq8lodqeg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -487,7 +523,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -498,6 +534,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/08/02/2017-08-02/">反思</a>
+          </li>
         
           <li>
             <a href="/2017/06/13/2017-06-13/">设置Image对象的src时到底发生了什么！？</a>
@@ -513,10 +553,6 @@
         
           <li>
             <a href="/2017/04/11/2017-04-11/">一道笔试题考察reduce和valueOf，toString</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/06/妙语1/">妙语壹</a>
           </li>
         
       </ul>

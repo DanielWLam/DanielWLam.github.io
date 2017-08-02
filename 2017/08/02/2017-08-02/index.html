@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Javascript生成笛卡尔积简便方法 | Daniel的blog</title>
+  <title>反思 | Daniel的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。
-这里引用一下这位大神的博客，实现非常简单：
-123456789101112function combine() &amp;#123;    return Array.prototype.reduce.call(arguments, function(a, b) &amp;#123;">
+  <meta name="description" content="好像是安逸久了，整个人懒散了，似乎是没有之前那么高要求。今天被leader痛批了一顿，原因是作品在笔记本屏幕上太丑。当时没说话，但是“顶”了一句，觉得自己情商好低。如果不能改掉这个缺陷，我永远也不可能是个适合打工的人。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript生成笛卡尔积简便方法">
-<meta property="og:url" content="https://danielwlam.github.io/2017/03/23/2017-03-23/index.html">
+<meta property="og:title" content="反思">
+<meta property="og:url" content="https://danielwlam.github.io/2017/08/02/2017-08-02/index.html">
 <meta property="og:site_name" content="Daniel的blog">
-<meta property="og:description" content="这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。
-这里引用一下这位大神的博客，实现非常简单：
-123456789101112function combine() &amp;#123;    return Array.prototype.reduce.call(arguments, function(a, b) &amp;#123;">
-<meta property="og:updated_time" content="2017-03-23T14:48:34.130Z">
+<meta property="og:description" content="好像是安逸久了，整个人懒散了，似乎是没有之前那么高要求。今天被leader痛批了一顿，原因是作品在笔记本屏幕上太丑。当时没说话，但是“顶”了一句，觉得自己情商好低。如果不能改掉这个缺陷，我永远也不可能是个适合打工的人。">
+<meta property="og:updated_time" content="2017-08-02T15:51:11.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript生成笛卡尔积简便方法">
-<meta name="twitter:description" content="这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。
-这里引用一下这位大神的博客，实现非常简单：
-123456789101112function combine() &amp;#123;    return Array.prototype.reduce.call(arguments, function(a, b) &amp;#123;">
+<meta name="twitter:title" content="反思">
+<meta name="twitter:description" content="好像是安逸久了，整个人懒散了，似乎是没有之前那么高要求。今天被leader痛批了一顿，原因是作品在笔记本屏幕上太丑。当时没说话，但是“顶”了一句，觉得自己情商好低。如果不能改掉这个缺陷，我永远也不可能是个适合打工的人。">
   
   
     <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -69,10 +63,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2017-03-23" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2017-08-02" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/23/2017-03-23/" class="article-date">
-  <time datetime="2017-03-23T14:48:34.055Z" itemprop="datePublished">2017-03-23</time>
+    <a href="/2017/08/02/2017-08-02/" class="article-date">
+  <time datetime="2017-08-02T15:49:10.745Z" itemprop="datePublished">2017-08-02</time>
 </a>
     
   </div>
@@ -83,7 +77,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Javascript生成笛卡尔积简便方法
+      反思
     </h1>
   
 
@@ -91,15 +85,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这两天遇到个需求，就是求笛卡尔积，这玩意在纸上写简单，在代码里，就不那么容易想了，老是想到for循环，这定势思维也是醉了。</p>
-<p>这里引用一下这位大神的<a href="http://cwestblog.com/2011/05/02/cartesian-product-of-multiple-arrays/" target="_blank" rel="external">博客</a>，实现非常简单：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">combine</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.reduce.call(<span class="built_in">arguments</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> ret = [];</div><div class="line">        a.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">            b.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">                ret.push(a.concat([b]))</div><div class="line">            &#125;)</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;, [[]])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>突然感觉啊，很多API虽然大多数情况，用不上，但是关键时刻，想一想还是挺巧妙的。</p>
+        <p>好像是安逸久了，整个人懒散了，似乎是没有之前那么高要求。今天被leader痛批了一顿，原因是作品在笔记本屏幕上太丑。当时没说话，但是“顶”了一句，觉得自己情商好低。如果不能改掉这个缺陷，我永远也不可能是个适合打工的人。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://danielwlam.github.io/2017/03/23/2017-03-23/" data-id="cj5v6x481000b38tet5zldpev" class="article-share-link">Share</a>
+      <a data-url="https://danielwlam.github.io/2017/08/02/2017-08-02/" data-id="cj5v6x481000838te1qf2el0t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -108,19 +99,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/04/06/妙语1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          妙语壹
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/16/2017-03-16/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/06/13/2017-06-13/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JS继承小感</div>
+      <div class="article-nav-title">设置Image对象的src时到底发生了什么！？</div>
     </a>
   
 </nav>
